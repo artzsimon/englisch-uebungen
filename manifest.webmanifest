@@ -1,0 +1,32 @@
+{
+  "name": "Englisch Klassenarbeit",
+  "short_name": "Englisch KA",
+  "lang": "de",
+  "dir": "ltr",
+  "display": "standalone",
+  "start_url": "./",
+  "scope": "./",
+  "background_color": "#f3efe6",
+  "theme_color": "#164e63",
+  "description": "Vorbereitung auf die Englisch-Klassenarbeit: Simple Present und Present Progressive, Modalersatzformen und Gerunds.",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

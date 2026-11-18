@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Englisch KA">
+  <meta name="application-name" content="Englisch Klassenarbeit">
+  <meta name="theme-color" content="#164e63">
+  <meta name="description" content="Vorbereitung auf die Englisch-Klassenarbeit: Simple Present und Present Progressive, Modalersatzformen und Gerunds.">
+  <title>Englisch Klassenarbeit</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" href="icon-192.png" sizes="192x192" type="image/png">
+  <link rel="icon" href="icon-512.png" sizes="512x512" type="image/png">
+  <style>
+:root {
+  --ink: #1c1916;
+  --muted: #5c564e;
+  --paper: #f3efe6;
+  --card: #fffdf8;
+  --line: #e4ddd2;
+  --accent: #164e63;
+  --accent-soft: color-mix(in srgb, var(--accent) 16%, #fffdf8);
+  --good: #0f7a4a;
+  --good-bg: #e7f6ee;
+  --bad: #b42318;
+  --bad-bg: #fdecea;
+}
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  min-height: 100%;
+  min-height: 100dvh;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+body {
+  padding-top: env(safe-area-inset-top);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+#app {
+  max-width: 430px;
+  margin: 0 auto;
+  padding: 12px 16px max(20px, env(safe-area-inset-bottom));
+}
+button, input {
+  font-family: inherit;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+h1, h2, p { margin: 0; }
+.kicker {
+  color: var(--accent);
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.6px;
+  margin-bottom: 6px;
+}
+.home-title {
+  font-size: 28px;
+  letter-spacing: -0.6px;
+  line-height: 1.15;
+  margin: 0 0 8px;
+}
+.lead { color: var(--muted); font-size: 16px; line-height: 1.45; margin: 0 0 18px; }
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 1px 0 rgba(28,25,22,0.04);
+}
+.card-btn {
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 8px;
+  cursor: pointer;
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 1px 0 rgba(28,25,22,0.04);
+}
+.card-title { font-weight: 800; font-size: 20px; }
+.card-title.sm { font-size: 17px; }
+.teaser { color: var(--muted); font-size: 15px; margin-top: 4px; line-height: 1.4; }
+.meta { margin-top: 10px; color: var(--accent); font-weight: 700; font-size: 14px; }
+.banner {
+  background: var(--accent-soft);
+  border: none;
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 14px;
+}
+.back {
+  display: inline-block;
+  min-height: 40px;
+  padding: 8px 12px 8px 0;
+  background: transparent;
+  color: var(--accent);
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+h1.page { font-size: 26px; margin: 4px 0 6px; letter-spacing: -0.4px; }
+h1.quiz { font-size: 22px; margin: 4px 0; letter-spacing: -0.3px; }
+h2.sec { font-size: 18px; margin: 0 0 8px; }
+.muted { color: var(--muted); font-size: 16px; }
+.lesson { margin-bottom: 10px; }
+.lesson-h { font-weight: 800; margin-bottom: 6px; }
+.lesson-b { font-size: 15px; line-height: 1.5; }
+.example {
+  margin-top: 8px;
+  padding: 8px 10px;
+  background: var(--paper);
+  border-radius: 10px;
+  font-size: 14px;
+  font-style: italic;
+}
+.vocab { padding: 0; overflow: hidden; margin-bottom: 12px; }
+.vocab-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.9fr;
+  gap: 0;
+  font-size: 13px;
+  padding: 10px 12px;
+  line-height: 1.35;
+  border-top: 1px solid var(--line);
+}
+.vocab-head {
+  font-weight: 700;
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-top: none;
+}
+.bar { height: 8px; background: var(--line); border-radius: 99px; overflow: hidden; }
+.bar > span { display: block; height: 100%; background: var(--accent); border-radius: 99px; }
+.q { margin: 0 0 8px; font-size: 18px; line-height: 1.45; font-weight: 700; }
+.hint { margin: 0 0 12px; color: var(--muted); font-size: 14px; }
+.opt {
+  display: block;
+  width: 100%;
+  min-height: 52px;
+  border-radius: 14px;
+  border: 2px solid var(--line);
+  background: var(--card);
+  color: var(--ink);
+  font-size: 17px;
+  font-weight: 600;
+  text-align: left;
+  padding: 12px 14px;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+.opt.chosen { background: var(--accent-soft); border-color: var(--accent); }
+.opt.good { background: var(--good-bg); border-color: var(--good); color: var(--good); }
+.opt.bad { background: var(--bad-bg); border-color: var(--bad); color: var(--bad); }
+.opt:disabled { cursor: default; }
+.fb { margin-top: 8px; border-radius: 12px; padding: 12px; }
+.fb.ok { background: var(--good-bg); color: var(--good); }
+.fb.no { background: var(--bad-bg); color: var(--bad); }
+.fb-title { font-weight: 800; }
+.primary, .ghost, .submit, .linkish {
+  display: block;
+  width: 100%;
+  min-height: 52px;
+  border-radius: 14px;
+  border: none;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.primary, .submit { background: var(--accent); color: #fff; margin-top: 14px; }
+.ghost { background: var(--accent-soft); color: var(--accent); margin-top: 10px; }
+.linkish {
+  background: transparent;
+  color: var(--accent);
+  border: 2px solid var(--accent);
+  margin-top: 8px;
+  margin-bottom: 12px;
+}
+.passage {
+  margin: 0 0 14px;
+  line-height: 1.65;
+  font-size: 16px;
+  background: var(--accent-soft);
+  border-radius: 12px;
+  padding: 12px;
+}
+.gap {
+  display: inline-block;
+  min-width: 52px;
+  margin: 0 3px;
+  padding: 0 6px;
+  border-bottom: 2px solid var(--muted);
+  color: var(--muted);
+  font-weight: 700;
+  border-radius: 4px;
+}
+.gap.on {
+  border-bottom-color: var(--accent);
+  color: var(--accent);
+  background: #fff;
+}
+.result { text-align: center; padding: 24px 16px; }
+.score { font-size: 42px; font-weight: 800; color: var(--accent); letter-spacing: -1px; }
+.pct { font-size: 16px; font-weight: 700; margin: 4px 0 8px; }
+.mistake { border-top: 1px solid var(--line); padding: 10px 0; }
+.mistake:first-of-type { border-top: none; }
+.m-q { font-weight: 700; margin-bottom: 4px; }
+.m-bad { font-size: 14px; color: var(--bad); }
+.m-good { font-size: 14px; color: var(--good); }
+.m-ex { font-size: 14px; color: var(--ink); margin-top: 4px; line-height: 1.4; }
+.foot { margin-top: 22px; color: var(--muted); font-size: 14px; line-height: 1.45; }
+.tests { margin: 18px 0 8px; }
+input[type="text"], input[type="password"] {
+  width: 100%;
+  min-height: 52px;
+  font-size: 16px;
+  border-radius: 14px;
+  border: 2px solid var(--line);
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  background: #fff;
+}
+label.pw {
+  display: block;
+  font-weight: 700;
+  margin: 0 0 8px;
+  font-size: 15px;
+}
+.err {
+  background: var(--bad-bg);
+  color: var(--bad);
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+.wait { color: var(--muted); font-size: 15px; margin-top: 8px; }
+.sol-item { border-top: 1px solid var(--line); padding: 12px 0; }
+.sol-item:first-of-type { border-top: none; }
+.sol-a { font-weight: 700; color: var(--good); margin: 6px 0; }
+.quiz-block { margin-bottom: 16px; }
+
+.eltern-link {
+  display: block;
+  width: 100%;
+  margin-top: 28px;
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  min-height: 36px;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.badge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 99px;
+  padding: 3px 8px;
+  margin-left: 6px;
+}
+.badge.ok { background: var(--good-bg); color: var(--good); }
+.badge.no { background: var(--bad-bg); color: var(--bad); }
+.badge.mute { background: var(--paper); color: var(--muted); }
+.task-log { border-top: 1px solid var(--line); padding: 10px 0; }
+.task-log:first-of-type { border-top: none; }
+.task-log .when { font-size: 13px; color: var(--muted); margin-top: 2px; }
+.task-log .given { font-size: 14px; margin-top: 2px; }
+.warn-list { margin: 8px 0 0; padding-left: 18px; font-size: 15px; line-height: 1.45; }
+.retry-note { font-size: 13px; color: var(--muted); margin-top: 6px; font-weight: 600; }
+
+.warn-box {
+  background: var(--bad-bg);
+  color: var(--bad);
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin: 0 0 12px;
+  font-size: 15px;
+  line-height: 1.45;
+  font-weight: 650;
+}
+.warn-box.warn {
+  background: #fff4e5;
+  color: #8a4b08;
+}
+.warn-box.info {
+  background: var(--paper);
+  color: var(--muted);
+  font-weight: 500;
+}
+
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+  const DATA = {"app":{"name":"Englisch Klassenarbeit","title":"Englisch Klassenarbeit","kicker":"KLASSE 8 · GYMNASIUM NRW","lead":"Übungen zu Simple Present und Present Progressive, Modalersatzformen (have to, be able to, be allowed to) und Gerunds – auf dem Niveau der Klassenarbeit, mit zusätzlichen Aufgaben zum Üben. Für die Wertung zählt nur der erste Versuch.","footer":"Lösungen sind geschützt. Für die Wertung zählt nur der erste Versuch je Aufgabe. Auf einem Android-Tablet in Chrome über das Menü „App installieren“ oder „Zum Startbildschirm hinzufügen“ ablegen.","storageKey":"lern-app:englisch-ka:progress-v1"},"topics":[{"id":"tenses","title":"Simple Present & Progressive","teaser":"Gewohnheiten, Fahrpläne und Fakten gegen Handlungen jetzt und persönliche Absprachen.","lessonTitle":"Wann welche Zeit?","tables":[],"lesson":[{"heading":"Simple Present","body":"Für Gewohnheiten, Fakten und feste Zeitpläne (Uhrzeiten, Fahrpläne, offizielle Termine). Bildung: I/you/we/they start, he/she/it starts. Verneinung: don't/doesn't + Infinitiv.","examples":["The workshop starts at 8 a.m.","The group with the best idea wins a prize.","Water boils at 100 degrees."]},{"heading":"Present Progressive","body":"Für Handlungen, die gerade laufen, für befristete Situationen und für persönliche Pläne und Absprachen in der Zukunft. Bildung: am/is/are + Verb-ing. Kurze Formen, wo möglich: I'm, she's, they're.","examples":["I'm taking part in a workshop on Saturday.","Look! They are planting trees.","Kelly Holmes is opening the new sports centre."]},{"heading":"Typische Signale","body":"Simple Present: usually, always, every day, at 8 a.m., on Monday (als Fahrplan). Present Progressive: now, look!, listen!, at the moment, this week, tomorrow (als Absprache).","examples":["Their plane arrives at 10.30. (Fahrplan)","My father is taking me to the match. (Arrangement)"]},{"heading":"Tipp für die Klassenarbeit","body":"Frage: Ist es ein Programm/eine Uhrzeit/eine Regel? → Simple Present. Ist es eine persönliche Absprache oder etwas, das gerade passiert? → Present Progressive. Verben wie understand, know, like, want stehen fast immer im Simple Present.","examples":["I don't understand this sentence.","Are you coming tomorrow?"]}],"quizzes":[{"id":"env-project","title":"The environment project","blurb":"Dialog aus der Klassenarbeit: Simple Present oder Present Progressive, 13 Lücken. Kurze Formen, wo möglich.","questions":[{"prompt":"Lücke 1: how _____ (get) information …","hint":"Kurzform ist hier bei are nicht möglich.","passage":"Tony: Hi Jim, how ___ (get) information for your environment project?\nJim: I ___ (take part) in a workshop at Faraway Travel. It's called “Eco-friendly travel and me”. It ___ (take place) on Saturday.\nTony: That sounds good! But I hope it ___ (not begin) too early …\nJim: Well, the workshop ___ (start) at 8 a.m. and ___ (go) until 4 p.m.\nTony: Wow, that's early and it's a full day. What ___ (do) so long?\nJim: From 8 a.m. to 12:30 p.m. the travel agents ___ (talk) to us about different eco travel topics, then from 1:30 p.m. to 3:30 p.m. we ___ (work) in small groups and ___ (plan) eco-friendly school trips. The group with the best idea ___ (win) a trip to Wild Nature Park! So will you come or not?\nTony: Are you joking? With a prize like that, of course I ___ (go) with you!\nJim: Good! I ___ (interview) one of the travel agents too and you can help me."},{"prompt":"Lücke 2: I _____ (take part) in a workshop …","passage":"Tony: Hi Jim, how ___ (get) information for your environment project?\nJim: I ___ (take part) in a workshop at Faraway Travel. It's called “Eco-friendly travel and me”. It ___ (take place) on Saturday.\nTony: That sounds good! But I hope it ___ (not begin) too early …\nJim: Well, the workshop ___ (start) at 8 a.m. and ___ (go) until 4 p.m.\nTony: Wow, that's early and it's a full day. What ___ (do) so long?\nJim: From 8 a.m. to 12:30 p.m. the travel agents ___ (talk) to us about different eco travel topics, then from 1:30 p.m. to 3:30 p.m. we ___ (work) in small groups and ___ (plan) eco-friendly school trips. The group with the best idea ___ (win) a trip to Wild Nature Park! So will you come or not?\nTony: Are you joking? With a prize like that, of course I ___ (go) with you!\nJim: Good! I ___ (interview) one of the travel agents too and you can help me."},{"prompt":"Lücke 3: It _____ (take place) on Saturday.","passage":"Tony: Hi Jim, how ___ (get) information for your environment project?\nJim: I ___ (take part) in a workshop at Faraway Travel. It's called “Eco-friendly travel and me”. It ___ (take place) on Saturday.\nTony: That sounds good! But I hope it ___ (not begin) too early …\nJim: Well, the workshop ___ (start) at 8 a.m. and ___ (go) until 4 p.m.\nTony: Wow, that's early and it's a full day. What ___ (do) so long?\nJim: From 8 a.m. to 12:30 p.m. the travel agents ___ (talk) to us about different eco travel topics, then from 1:30 p.m. to 3:30 p.m. we ___ (work) in small groups and ___ (plan) eco-friendly school trips. The group with the best idea ___ (win) a trip to Wild Nature Park! So will you come or not?\nTony: Are you joking? With a prize like that, of course I ___ (go) with you!\nJim: Good! I ___ (interview) one of the travel agents too and you can help me."},{"prompt":"Lücke 4: I hope it _____ (not begin) too early …","passage":"Tony: Hi Jim, how ___ (get) information for your environment project?\nJim: I ___ (take part) in a workshop at Faraway Travel. It's called “Eco-friendly travel and me”. It ___ (take place) on Saturday.\nTony: That sounds good! But I hope it ___ (not begin) too early …\nJim: Well, the workshop ___ (start) at 8 a.m. and ___ (go) until 4 p.m.\nTony: Wow, that's early and it's a full day. What ___ (do) so long?\nJim: From 8 a.m. to 12:30 p.m. the travel agents ___ (talk) to us about different eco travel topics, then from 1:30 p.m. to 3:30 p.m. we ___ (work) in small groups and ___ (plan) eco-friendly school trips. The group with the best idea ___ (win) a trip to Wild Nature Park! So will you come or not?\nTony: Are you joking? With a prize like that, of course I ___ (go) with you!\nJim: Good! I ___ (interview) one of the travel agents too and you can help me."},{"prompt":"Lücke 5: the workshop _____ (start) at 8 a.m.","passage":"Tony: Hi Jim, how ___ (get) information for your environment project?\nJim: I ___ (take part) in a workshop at Faraway Travel. It's called “Eco-friendly travel and me”. It ___ (take place) on Saturday.\nTony: That sounds good! But I hope it ___ (not begin) too early …\nJim: Well, the workshop ___ (start) at 8 a.m. and ___ (go) until 4 p.m.\nTony: Wow, that's early and it's a full day. What ___ (do) so long?\nJim: From 8 a.m. to 12:30 p.m. the travel agents ___ (talk) to us about different eco travel topics, then from 1:30 p.m. to 3:30 p.m. we ___ (work) in small groups and ___ (plan) eco-friendly school trips. The group with the best idea ___ (win) a trip to Wild Nature Park! So will you come or not?\nTony: Are you joking? With a prize like that, of course I ___ (go) with you!\nJim: Good! I ___ (interview) one of the travel agents too and you can help me."},{"prompt":"Lücke 6: and _____ (go) until 4 p.m.","passage":"Tony: Hi Jim, how ___ (get) information for your environment project?\nJim: I ___ (take part) in a workshop at Faraway Travel. It's called “Eco-friendly travel and me”. It ___ (take place) on Saturday.\nTony: That sounds good! But I hope it ___ (not begin) too early …\nJim: Well, the workshop ___ (start) at 8 a.m. and ___ (go) until 4 p.m.\nTony: Wow, that's early and it's a full day. What ___ (do) so long?\nJim: From 8 a.m. to 12:30 p.m. the travel agents ___ (talk) to us about different eco travel topics, then from 1:30 p.m. to 3:30 p.m. we ___ (work) in small groups and ___ (plan) eco-friendly school trips. The group with the best idea ___ (win) a trip to Wild Nature Park! So will you come or not?\nTony: Are you joking? With a prize like that, of course I ___ (go) with you!\nJim: Good! I ___ (interview) one of the travel agents too and you can help me."},{"prompt":"Lücke 7: What _____ (do) so long?","passage":"Tony: Hi Jim, how ___ (get) information for your environment project?\nJim: I ___ (take part) in a workshop at Faraway Travel. It's called “Eco-friendly travel and me”. It ___ (take place) on Saturday.\nTony: That sounds good! But I hope it ___ (not begin) too early …\nJim: Well, the workshop ___ (start) at 8 a.m. and ___ (go) until 4 p.m.\nTony: Wow, that's early and it's a full day. What ___ (do) so long?\nJim: From 8 a.m. to 12:30 p.m. the travel agents ___ (talk) to us about different eco travel topics, then from 1:30 p.m. to 3:30 p.m. we ___ (work) in small groups and ___ (plan) eco-friendly school trips. The group with the best idea ___ (win) a trip to Wild Nature Park! So will you come or not?\nTony: Are you joking? With a prize like that, of course I ___ (go) with you!\nJim: Good! I ___ (interview) one of the travel agents too and you can help me."},{"prompt":"Lücke 8: the travel agents _____ (talk) to us …","passage":"Tony: Hi Jim, how ___ (get) information for your environment project?\nJim: I ___ (take part) in a workshop at Faraway Travel. It's called “Eco-friendly travel and me”. It ___ (take place) on Saturday.\nTony: That sounds good! But I hope it ___ (not begin) too early …\nJim: Well, the workshop ___ (start) at 8 a.m. and ___ (go) until 4 p.m.\nTony: Wow, that's early and it's a full day. What ___ (do) so long?\nJim: From 8 a.m. to 12:30 p.m. the travel agents ___ (talk) to us about different eco travel topics, then from 1:30 p.m. to 3:30 p.m. we ___ (work) in small groups and ___ (plan) eco-friendly school trips. The group with the best idea ___ (win) a trip to Wild Nature Park! So will you come or not?\nTony: Are you joking? With a prize like that, of course I ___ (go) with you!\nJim: Good! I ___ (interview) one of the travel agents too and you can help me."},{"prompt":"Lücke 9: we _____ (work) in small groups","passage":"Tony: Hi Jim, how ___ (get) information for your environment project?\nJim: I ___ (take part) in a workshop at Faraway Travel. It's called “Eco-friendly travel and me”. It ___ (take place) on Saturday.\nTony: That sounds good! But I hope it ___ (not begin) too early …\nJim: Well, the workshop ___ (start) at 8 a.m. and ___ (go) until 4 p.m.\nTony: Wow, that's early and it's a full day. What ___ (do) so long?\nJim: From 8 a.m. to 12:30 p.m. the travel agents ___ (talk) to us about different eco travel topics, then from 1:30 p.m. to 3:30 p.m. we ___ (work) in small groups and ___ (plan) eco-friendly school trips. The group with the best idea ___ (win) a trip to Wild Nature Park! So will you come or not?\nTony: Are you joking? With a prize like that, of course I ___ (go) with you!\nJim: Good! I ___ (interview) one of the travel agents too and you can help me."},{"prompt":"Lücke 10: and _____ (plan) eco-friendly school trips.","passage":"Tony: Hi Jim, how ___ (get) information for your environment project?\nJim: I ___ (take part) in a workshop at Faraway Travel. It's called “Eco-friendly travel and me”. It ___ (take place) on Saturday.\nTony: That sounds good! But I hope it ___ (not begin) too early …\nJim: Well, the workshop ___ (start) at 8 a.m. and ___ (go) until 4 p.m.\nTony: Wow, that's early and it's a full day. What ___ (do) so long?\nJim: From 8 a.m. to 12:30 p.m. the travel agents ___ (talk) to us about different eco travel topics, then from 1:30 p.m. to 3:30 p.m. we ___ (work) in small groups and ___ (plan) eco-friendly school trips. The group with the best idea ___ (win) a trip to Wild Nature Park! So will you come or not?\nTony: Are you joking? With a prize like that, of course I ___ (go) with you!\nJim: Good! I ___ (interview) one of the travel agents too and you can help me."},{"prompt":"Lücke 11: The group with the best idea _____ (win) a trip …","passage":"Tony: Hi Jim, how ___ (get) information for your environment project?\nJim: I ___ (take part) in a workshop at Faraway Travel. It's called “Eco-friendly travel and me”. It ___ (take place) on Saturday.\nTony: That sounds good! But I hope it ___ (not begin) too early …\nJim: Well, the workshop ___ (start) at 8 a.m. and ___ (go) until 4 p.m.\nTony: Wow, that's early and it's a full day. What ___ (do) so long?\nJim: From 8 a.m. to 12:30 p.m. the travel agents ___ (talk) to us about different eco travel topics, then from 1:30 p.m. to 3:30 p.m. we ___ (work) in small groups and ___ (plan) eco-friendly school trips. The group with the best idea ___ (win) a trip to Wild Nature Park! So will you come or not?\nTony: Are you joking? With a prize like that, of course I ___ (go) with you!\nJim: Good! I ___ (interview) one of the travel agents too and you can help me."},{"prompt":"Lücke 12: of course I _____ (go) with you!","passage":"Tony: Hi Jim, how ___ (get) information for your environment project?\nJim: I ___ (take part) in a workshop at Faraway Travel. It's called “Eco-friendly travel and me”. It ___ (take place) on Saturday.\nTony: That sounds good! But I hope it ___ (not begin) too early …\nJim: Well, the workshop ___ (start) at 8 a.m. and ___ (go) until 4 p.m.\nTony: Wow, that's early and it's a full day. What ___ (do) so long?\nJim: From 8 a.m. to 12:30 p.m. the travel agents ___ (talk) to us about different eco travel topics, then from 1:30 p.m. to 3:30 p.m. we ___ (work) in small groups and ___ (plan) eco-friendly school trips. The group with the best idea ___ (win) a trip to Wild Nature Park! So will you come or not?\nTony: Are you joking? With a prize like that, of course I ___ (go) with you!\nJim: Good! I ___ (interview) one of the travel agents too and you can help me."},{"prompt":"Lücke 13: I _____ (interview) one of the travel agents too","passage":"Tony: Hi Jim, how ___ (get) information for your environment project?\nJim: I ___ (take part) in a workshop at Faraway Travel. It's called “Eco-friendly travel and me”. It ___ (take place) on Saturday.\nTony: That sounds good! But I hope it ___ (not begin) too early …\nJim: Well, the workshop ___ (start) at 8 a.m. and ___ (go) until 4 p.m.\nTony: Wow, that's early and it's a full day. What ___ (do) so long?\nJim: From 8 a.m. to 12:30 p.m. the travel agents ___ (talk) to us about different eco travel topics, then from 1:30 p.m. to 3:30 p.m. we ___ (work) in small groups and ___ (plan) eco-friendly school trips. The group with the best idea ___ (win) a trip to Wild Nature Park! So will you come or not?\nTony: Are you joking? With a prize like that, of course I ___ (go) with you!\nJim: Good! I ___ (interview) one of the travel agents too and you can help me."}]},{"id":"events","title":"Events and arrangements","blurb":"Aus der Klassenarbeit: Zeitplan (Simple Present) oder persönliche Absprache (Present Progressive).","questions":[{"prompt":"My father _____ (take) me to a rugby match next Saturday.","hint":"Arrangement, nicht Fahrplan."},{"prompt":"It _____ (start) at half past two."},{"prompt":"Our German partner school _____ (send) a girls' football team to England next week."},{"prompt":"Their plane _____ (arrive) at Heathrow at 10.30 on Monday."},{"prompt":"The easy fitness course _____ (finish) on October 1st."},{"prompt":"After that we _____ (start) a harder course."},{"prompt":"The tennis fans _____ (go) to Wimbledon by bus on Friday."},{"prompt":"Their bus _____ (leave) at 9 a.m."},{"prompt":"The new sports centre _____ (open) on September 15th."},{"prompt":"Kelly Holmes _____ (open) it."}]},{"id":"now-or-always","title":"Jetzt oder immer?","blurb":"Zusätzliche Übungen: Gewohnheit und Fakt gegen Handlung jetzt oder festen Plan.","questions":[{"prompt":"Look! The students _____ (plant) trees in front of the school."},{"prompt":"Our school _____ (start) at 8 a.m. every day."},{"prompt":"I _____ (not / understand) why some people throw rubbish into the river."},{"prompt":"This week we _____ (collect) old phones for a recycling project."},{"prompt":"The bus to the nature park _____ (leave) at 9.15 on Saturday."},{"prompt":"_____ you _____ (come) to the beach clean-up tomorrow?","hint":"Present Progressive, ganze Frage."},{"prompt":"Water _____ (boil) at 100 degrees Celsius."},{"prompt":"Quiet, please! I _____ (try) to finish my report."}]}]},{"id":"modals","title":"Modalersatzformen","teaser":"have to, be able to und be allowed to in Gegenwart, Vergangenheit, Zukunft und Present Perfect.","lessonTitle":"Ersatzformen der Modalverben","tables":[],"lesson":[{"heading":"Wozu Ersatzformen?","body":"must, can und may/mustn't haben keine vollständige Zeitenbildung. Für Vergangenheit, Zukunft und Present Perfect braucht man have to (Notwendigkeit), be able to (Möglichkeit) und be allowed to (Erlaubnis/Verbot).","examples":["must → have to / had to / will have to / have had to","can → be able to / was able to / will be able to","may, can (Erlaubnis) / mustn't (Verbot) → be allowed to / wasn't allowed to / won't be allowed to"]},{"heading":"Wichtig: needn't gegen mustn't","body":"needn't bedeutet „nicht nötig“ und wird zu don't have to. mustn't ist ein Verbot und wird zu not be allowed to. Diese beiden darfst du nicht vertauschen.","examples":["You don't have to worry. (nicht nötig)","We weren't allowed to climb the mountain. (verboten)"]},{"heading":"Signalwörter für die Zeit","body":"Simple Past: last year, yesterday, on Monday, then. will-Zukunft: tomorrow, next week, if … tomorrow. Present Perfect: so far, yet, already this week.","examples":["so far this week I have had to prepare breakfast.","Have they had to watch out for food yet?"]},{"heading":"Tipp für Lücken","body":"1. Welche Bedeutung? Pflicht, Möglichkeit oder Erlaubnis/Verbot. 2. Welche Zeit? 3. Bei Verneinung: (not) im Text heißt, dass die Verneinung in die Form muss (wasn't able to, won't be allowed to, don't have to).","examples":["I (not) _____ walk in the rain. → wasn't able to","you _____ worry → don't have to"]}],"quizzes":[{"id":"scotland","title":"A holiday in Scotland","blurb":"Dialog aus der Klassenarbeit: Ersatzformen von must, can, may / mustn't, needn't – in der richtigen Zeit.","questions":[{"prompt":"Lücke 1 (must): why _____ to go to Scotland …?","hint":"must → have to, Simple Present, Frage.","passage":"Alex: Oh, why ___ to go to Scotland on holiday? Again! Last year it was so cold we ___ climb Ben Nevis because of the ice. They said it was too dangerous. And we ___ go out because it was too wet. We ___ stay in for a week and play cards!\nDad: Well, Alex, you ___ worry about the weather this year. The weather forecast is great. We ___ go swimming in the sea every day. You'll love it.\nAlex: But the sea is so cold up there. We ___ feel our feet. Why can't we go to Spain or Italy like everybody else?\nDad: Well. You ___ fly to those countries and there are environmental issues with that."},{"prompt":"Lücke 2 (mustn't): we _____ climb Ben Nevis because of the ice.","hint":"mustn't → be not allowed to, Vergangenheit.","passage":"Alex: Oh, why ___ to go to Scotland on holiday? Again! Last year it was so cold we ___ climb Ben Nevis because of the ice. They said it was too dangerous. And we ___ go out because it was too wet. We ___ stay in for a week and play cards!\nDad: Well, Alex, you ___ worry about the weather this year. The weather forecast is great. We ___ go swimming in the sea every day. You'll love it.\nAlex: But the sea is so cold up there. We ___ feel our feet. Why can't we go to Spain or Italy like everybody else?\nDad: Well. You ___ fly to those countries and there are environmental issues with that."},{"prompt":"Lücke 3 (couldn't): we _____ go out because it was too wet.","hint":"couldn't → be not able to, Vergangenheit.","passage":"Alex: Oh, why ___ to go to Scotland on holiday? Again! Last year it was so cold we ___ climb Ben Nevis because of the ice. They said it was too dangerous. And we ___ go out because it was too wet. We ___ stay in for a week and play cards!\nDad: Well, Alex, you ___ worry about the weather this year. The weather forecast is great. We ___ go swimming in the sea every day. You'll love it.\nAlex: But the sea is so cold up there. We ___ feel our feet. Why can't we go to Spain or Italy like everybody else?\nDad: Well. You ___ fly to those countries and there are environmental issues with that."},{"prompt":"Lücke 4 (must): We _____ stay in for a week and play cards!","hint":"must → have to, Vergangenheit.","passage":"Alex: Oh, why ___ to go to Scotland on holiday? Again! Last year it was so cold we ___ climb Ben Nevis because of the ice. They said it was too dangerous. And we ___ go out because it was too wet. We ___ stay in for a week and play cards!\nDad: Well, Alex, you ___ worry about the weather this year. The weather forecast is great. We ___ go swimming in the sea every day. You'll love it.\nAlex: But the sea is so cold up there. We ___ feel our feet. Why can't we go to Spain or Italy like everybody else?\nDad: Well. You ___ fly to those countries and there are environmental issues with that."},{"prompt":"Lücke 5 (needn't): you _____ worry about the weather this year.","hint":"needn't → not have to, Gegenwart.","passage":"Alex: Oh, why ___ to go to Scotland on holiday? Again! Last year it was so cold we ___ climb Ben Nevis because of the ice. They said it was too dangerous. And we ___ go out because it was too wet. We ___ stay in for a week and play cards!\nDad: Well, Alex, you ___ worry about the weather this year. The weather forecast is great. We ___ go swimming in the sea every day. You'll love it.\nAlex: But the sea is so cold up there. We ___ feel our feet. Why can't we go to Spain or Italy like everybody else?\nDad: Well. You ___ fly to those countries and there are environmental issues with that."},{"prompt":"Lücke 6 (can): We _____ go swimming in the sea every day.","hint":"can → be able to, will-Zukunft.","passage":"Alex: Oh, why ___ to go to Scotland on holiday? Again! Last year it was so cold we ___ climb Ben Nevis because of the ice. They said it was too dangerous. And we ___ go out because it was too wet. We ___ stay in for a week and play cards!\nDad: Well, Alex, you ___ worry about the weather this year. The weather forecast is great. We ___ go swimming in the sea every day. You'll love it.\nAlex: But the sea is so cold up there. We ___ feel our feet. Why can't we go to Spain or Italy like everybody else?\nDad: Well. You ___ fly to those countries and there are environmental issues with that."},{"prompt":"Lücke 7 (can't): We _____ feel our feet.","hint":"can't → be not able to, will-Zukunft.","passage":"Alex: Oh, why ___ to go to Scotland on holiday? Again! Last year it was so cold we ___ climb Ben Nevis because of the ice. They said it was too dangerous. And we ___ go out because it was too wet. We ___ stay in for a week and play cards!\nDad: Well, Alex, you ___ worry about the weather this year. The weather forecast is great. We ___ go swimming in the sea every day. You'll love it.\nAlex: But the sea is so cold up there. We ___ feel our feet. Why can't we go to Spain or Italy like everybody else?\nDad: Well. You ___ fly to those countries and there are environmental issues with that."},{"prompt":"Lücke 8 (must): You _____ fly to those countries …","hint":"must → have to, Gegenwart.","passage":"Alex: Oh, why ___ to go to Scotland on holiday? Again! Last year it was so cold we ___ climb Ben Nevis because of the ice. They said it was too dangerous. And we ___ go out because it was too wet. We ___ stay in for a week and play cards!\nDad: Well, Alex, you ___ worry about the weather this year. The weather forecast is great. We ___ go swimming in the sea every day. You'll love it.\nAlex: But the sea is so cold up there. We ___ feel our feet. Why can't we go to Spain or Italy like everybody else?\nDad: Well. You ___ fly to those countries and there are environmental issues with that."}]},{"id":"diary","title":"Gwendolyn's diary","blurb":"Aus der Klassenarbeit: have to, be able to oder be allowed to – auf Signalwörter und die Zeit achten.","questions":[{"prompt":"Lücke 1: On Monday I _____ clean all the bedrooms","hint":"Vergangenheit, Pflicht.","passage":"It has been a hard week in Lord and Lady Cumberland's house. On Monday I ___ clean all the bedrooms, so I (not) ___ sit down until the evening. On Wednesday Lord Cumberland's brother visited. He plays the bagpipes, and we servants ___ listen to him when he played for the family. Friday was very rainy – it was so wet that I (not) ___ walk in the park. Cook is ill, and so far this week, I ___ prepare breakfast, lunch and the evening meal for the whole family every day – that's nine people! If Cook is better tomorrow, I ___ have a free afternoon: My brother is coming to London! I hope that I ___ find him at the busy train station! Timothy's visions have stopped: If I live to be 100, I (not) ___ forget the things he told me about!"},{"prompt":"Lücke 2: so I (not) _____ sit down until the evening.","hint":"Vergangenheit, keine Möglichkeit.","passage":"It has been a hard week in Lord and Lady Cumberland's house. On Monday I ___ clean all the bedrooms, so I (not) ___ sit down until the evening. On Wednesday Lord Cumberland's brother visited. He plays the bagpipes, and we servants ___ listen to him when he played for the family. Friday was very rainy – it was so wet that I (not) ___ walk in the park. Cook is ill, and so far this week, I ___ prepare breakfast, lunch and the evening meal for the whole family every day – that's nine people! If Cook is better tomorrow, I ___ have a free afternoon: My brother is coming to London! I hope that I ___ find him at the busy train station! Timothy's visions have stopped: If I live to be 100, I (not) ___ forget the things he told me about!"},{"prompt":"Lücke 3: we servants _____ listen to him when he played for the family.","hint":"Vergangenheit, Pflicht der servants.","passage":"It has been a hard week in Lord and Lady Cumberland's house. On Monday I ___ clean all the bedrooms, so I (not) ___ sit down until the evening. On Wednesday Lord Cumberland's brother visited. He plays the bagpipes, and we servants ___ listen to him when he played for the family. Friday was very rainy – it was so wet that I (not) ___ walk in the park. Cook is ill, and so far this week, I ___ prepare breakfast, lunch and the evening meal for the whole family every day – that's nine people! If Cook is better tomorrow, I ___ have a free afternoon: My brother is coming to London! I hope that I ___ find him at the busy train station! Timothy's visions have stopped: If I live to be 100, I (not) ___ forget the things he told me about!"},{"prompt":"Lücke 4: it was so wet that I (not) _____ walk in the park.","hint":"Vergangenheit, unmöglich wegen des Wetters.","passage":"It has been a hard week in Lord and Lady Cumberland's house. On Monday I ___ clean all the bedrooms, so I (not) ___ sit down until the evening. On Wednesday Lord Cumberland's brother visited. He plays the bagpipes, and we servants ___ listen to him when he played for the family. Friday was very rainy – it was so wet that I (not) ___ walk in the park. Cook is ill, and so far this week, I ___ prepare breakfast, lunch and the evening meal for the whole family every day – that's nine people! If Cook is better tomorrow, I ___ have a free afternoon: My brother is coming to London! I hope that I ___ find him at the busy train station! Timothy's visions have stopped: If I live to be 100, I (not) ___ forget the things he told me about!"},{"prompt":"Lücke 5: so far this week, I _____ prepare breakfast, lunch and the evening meal …","hint":"Signal: so far this week → Present Perfect.","passage":"It has been a hard week in Lord and Lady Cumberland's house. On Monday I ___ clean all the bedrooms, so I (not) ___ sit down until the evening. On Wednesday Lord Cumberland's brother visited. He plays the bagpipes, and we servants ___ listen to him when he played for the family. Friday was very rainy – it was so wet that I (not) ___ walk in the park. Cook is ill, and so far this week, I ___ prepare breakfast, lunch and the evening meal for the whole family every day – that's nine people! If Cook is better tomorrow, I ___ have a free afternoon: My brother is coming to London! I hope that I ___ find him at the busy train station! Timothy's visions have stopped: If I live to be 100, I (not) ___ forget the things he told me about!"},{"prompt":"Lücke 6: If Cook is better tomorrow, I _____ have a free afternoon","hint":"Zukunft, Möglichkeit.","passage":"It has been a hard week in Lord and Lady Cumberland's house. On Monday I ___ clean all the bedrooms, so I (not) ___ sit down until the evening. On Wednesday Lord Cumberland's brother visited. He plays the bagpipes, and we servants ___ listen to him when he played for the family. Friday was very rainy – it was so wet that I (not) ___ walk in the park. Cook is ill, and so far this week, I ___ prepare breakfast, lunch and the evening meal for the whole family every day – that's nine people! If Cook is better tomorrow, I ___ have a free afternoon: My brother is coming to London! I hope that I ___ find him at the busy train station! Timothy's visions have stopped: If I live to be 100, I (not) ___ forget the things he told me about!"},{"prompt":"Lücke 7: I hope that I _____ find him at the busy train station!","hint":"Zukunft, Möglichkeit.","passage":"It has been a hard week in Lord and Lady Cumberland's house. On Monday I ___ clean all the bedrooms, so I (not) ___ sit down until the evening. On Wednesday Lord Cumberland's brother visited. He plays the bagpipes, and we servants ___ listen to him when he played for the family. Friday was very rainy – it was so wet that I (not) ___ walk in the park. Cook is ill, and so far this week, I ___ prepare breakfast, lunch and the evening meal for the whole family every day – that's nine people! If Cook is better tomorrow, I ___ have a free afternoon: My brother is coming to London! I hope that I ___ find him at the busy train station! Timothy's visions have stopped: If I live to be 100, I (not) ___ forget the things he told me about!"},{"prompt":"Lücke 8: If I live to be 100, I (not) _____ forget the things he told me about!","hint":"Zukunft, Verneinung von be able to.","passage":"It has been a hard week in Lord and Lady Cumberland's house. On Monday I ___ clean all the bedrooms, so I (not) ___ sit down until the evening. On Wednesday Lord Cumberland's brother visited. He plays the bagpipes, and we servants ___ listen to him when he played for the family. Friday was very rainy – it was so wet that I (not) ___ walk in the park. Cook is ill, and so far this week, I ___ prepare breakfast, lunch and the evening meal for the whole family every day – that's nine people! If Cook is better tomorrow, I ___ have a free afternoon: My brother is coming to London! I hope that I ___ find him at the busy train station! Timothy's visions have stopped: If I live to be 100, I (not) ___ forget the things he told me about!"}]},{"id":"globe","title":"The Globe Theatre","blurb":"Aus der Klassenarbeit: Sätze mit have to in der richtigen Zeit. (Aufgabe 1 ist im Arbeitsblatt als Beispiel vorgegeben.)","questions":[{"prompt":"Did Shakespeare become famous quickly? Yes. He _____ (not / wait) long for success.","hint":"have to, Simple Past, verneint."},{"prompt":"_____ (we / wear) warm clothes when we come to watch a play?","hint":"have to, Frage, Gegenwart."},{"prompt":"Can we sit down in front of the stage? No, you _____ (stand), sorry."},{"prompt":"Is there a hotel near the theatre? Yes, but it's very popular. If you want a room, you _____ (call) early."},{"prompt":"Did people ever think the plays were boring in those days? Yes, and the actors _____ (be) careful, because people threw food at them then!"},{"prompt":"_____ (modern actors / watch out) for food yet?","hint":"have to im Present Perfect, Frage mit yet."},{"prompt":"Can children come to see a play? Of course, and you _____ (not / worry) if they walk around: You're allowed to, like in Shakespeare's time!"}]},{"id":"at-globe","title":"At the Globe","blurb":"Aus der Klassenarbeit: Was dürfen Tracy und Mark, was nicht? Die Bilder sind hier in Worten beschrieben.","questions":[{"prompt":"Bild 1: ein Souvenirshop. What will they be able to do?","hint":"will be able to + go to the souvenir shop"},{"prompt":"Bild 2: ein Handy, das nicht benutzt werden darf. What won't they be allowed to do?","hint":"won't be allowed to + use phones"},{"prompt":"Bild 3: sie treffen Schauspieler. What will they be able to do?"},{"prompt":"Bild 4: Schlittschuhe, die nicht erlaubt sind. What won't they be allowed to do?"},{"prompt":"Bild 5: Kostüme zum Anprobieren. What will they be able to do?"}]},{"id":"modal-extra","title":"Noch mehr Modalersatz","blurb":"Zusätzliche Übungen auf demselben Niveau: have to, be able to, be allowed to.","questions":[{"prompt":"Yesterday the museum was free, so we _____ (not / pay) for the tickets."},{"prompt":"You _____ (not / take) photos during the play. It's against the rules."},{"prompt":"If we hurry, we _____ (catch) the last bus."},{"prompt":"Last year I _____ (not / swim) in the lake because it was frozen."},{"prompt":"_____ we _____ (wear) a uniform at this school?"},{"prompt":"After the tour the students _____ (ask) the actors questions. That was allowed."}]}]},{"id":"gerund","title":"Gerunds","teaser":"Verb-ing nach bestimmten Verben, nach Präpositionen und nach Adjektiv + Präposition.","lessonTitle":"Wann steht das Gerund?","tables":[{"columns":["Wendung","Beispiel"],"rows":[["feel like","I feel like writing an email."],["worried about","I was worried about moving."],["tired of","I was tired of driving every day."],["crazy about","I've become crazy about skiing."],["dream of","He dreams of winning the race."],["get used to","I can't get used to having more time."],["thinking of","Are you thinking of coming in March?"],["good at","She's good at skiing."],["look forward to","I look forward to seeing you."]]}],"lesson":[{"heading":"Was ist ein Gerund?","body":"Ein Gerund ist ein Verb mit -ing, das wie ein Nomen benutzt wird. Nach vielen Verben (enjoy, mind, keep, stop, finish, hate, start), nach Präpositionen und nach Wendungen wie good at oder tired of steht das Gerund – nicht to + Infinitiv.","examples":["I enjoy riding my bike.","I'm tired of waiting.","She's good at skiing."]},{"heading":"Vorsicht bei to","body":"In look forward to, get used to und ähnlich ist to eine Präposition. Danach kommt ebenfalls das Gerund: look forward to seeing you, get used to having more time.","examples":["I'm looking forward to seeing you.","I can't get used to getting up so early."]},{"heading":"Rechtschreibung","body":"Wie beim Present Progressive: ein stummes -e am Ende fällt weg (write → writing, ride → riding). Nach kurzem betontem Vokal wird der Konsonant oft verdoppelt (get → getting, swim → swimming).","examples":["writing, riding, coming","getting, swimming, sitting"]},{"heading":"Kasten wie im Arbeitsblatt","body":"Typische Verbindungen aus dem Übungsblatt: feel like, worried about, tired of, crazy about, dream of, get used to, thinking of, good at, look forward to – danach immer Verb-ing.","examples":["worried about moving","dream of winning","look forward to having fun"]}],"quizzes":[{"id":"dean-email","title":"Dean's email","blurb":"Aus dem Gerund-Arbeitsblatt: Verb/Adjektiv + Präposition + Gerund. feel like writing ist schon als Beispiel eingesetzt.","questions":[{"prompt":"Lücke 1: I was a bit _____ moving to Jackson","hint":"Adjektiv + Präposition aus dem Kasten.","passage":"Hey Lance, everything OK? I know, I just wrote three weeks ago, but I feel like writing – I have more time now. I was a bit ___ moving to Jackson, but it was the best thing to do. I was so ___ driving from Sunrise Pass to Jackson and back every day. It's funny, but I can't ___ having more time for friends after homework.\nHey, I've become ___ skiing! I love it! Just look at the photo Ritchie took. Not bad, eh? I'm starting to ___ winning the Olympics one day. When are you ___ coming out here? How about spring vacation in March? You can ___ having a lot of fun here.\nTime to get to the lodge. I'm the world's worst waiter, but so far there haven't been any problems. I guess I can't expect to be ___ skiing and being a waiter …\nSee ya! Dean"},{"prompt":"Lücke 2: I was so _____ driving from Sunrise Pass to Jackson and back every day.","passage":"Hey Lance, everything OK? I know, I just wrote three weeks ago, but I feel like writing – I have more time now. I was a bit ___ moving to Jackson, but it was the best thing to do. I was so ___ driving from Sunrise Pass to Jackson and back every day. It's funny, but I can't ___ having more time for friends after homework.\nHey, I've become ___ skiing! I love it! Just look at the photo Ritchie took. Not bad, eh? I'm starting to ___ winning the Olympics one day. When are you ___ coming out here? How about spring vacation in March? You can ___ having a lot of fun here.\nTime to get to the lodge. I'm the world's worst waiter, but so far there haven't been any problems. I guess I can't expect to be ___ skiing and being a waiter …\nSee ya! Dean"},{"prompt":"Lücke 3: I can't _____ having more time for friends after homework.","passage":"Hey Lance, everything OK? I know, I just wrote three weeks ago, but I feel like writing – I have more time now. I was a bit ___ moving to Jackson, but it was the best thing to do. I was so ___ driving from Sunrise Pass to Jackson and back every day. It's funny, but I can't ___ having more time for friends after homework.\nHey, I've become ___ skiing! I love it! Just look at the photo Ritchie took. Not bad, eh? I'm starting to ___ winning the Olympics one day. When are you ___ coming out here? How about spring vacation in March? You can ___ having a lot of fun here.\nTime to get to the lodge. I'm the world's worst waiter, but so far there haven't been any problems. I guess I can't expect to be ___ skiing and being a waiter …\nSee ya! Dean"},{"prompt":"Lücke 4: I've become _____ skiing! I love it!","passage":"Hey Lance, everything OK? I know, I just wrote three weeks ago, but I feel like writing – I have more time now. I was a bit ___ moving to Jackson, but it was the best thing to do. I was so ___ driving from Sunrise Pass to Jackson and back every day. It's funny, but I can't ___ having more time for friends after homework.\nHey, I've become ___ skiing! I love it! Just look at the photo Ritchie took. Not bad, eh? I'm starting to ___ winning the Olympics one day. When are you ___ coming out here? How about spring vacation in March? You can ___ having a lot of fun here.\nTime to get to the lodge. I'm the world's worst waiter, but so far there haven't been any problems. I guess I can't expect to be ___ skiing and being a waiter …\nSee ya! Dean"},{"prompt":"Lücke 5: I'm starting to _____ winning the Olympics one day.","passage":"Hey Lance, everything OK? I know, I just wrote three weeks ago, but I feel like writing – I have more time now. I was a bit ___ moving to Jackson, but it was the best thing to do. I was so ___ driving from Sunrise Pass to Jackson and back every day. It's funny, but I can't ___ having more time for friends after homework.\nHey, I've become ___ skiing! I love it! Just look at the photo Ritchie took. Not bad, eh? I'm starting to ___ winning the Olympics one day. When are you ___ coming out here? How about spring vacation in March? You can ___ having a lot of fun here.\nTime to get to the lodge. I'm the world's worst waiter, but so far there haven't been any problems. I guess I can't expect to be ___ skiing and being a waiter …\nSee ya! Dean"},{"prompt":"Lücke 6: When are you _____ coming out here?","passage":"Hey Lance, everything OK? I know, I just wrote three weeks ago, but I feel like writing – I have more time now. I was a bit ___ moving to Jackson, but it was the best thing to do. I was so ___ driving from Sunrise Pass to Jackson and back every day. It's funny, but I can't ___ having more time for friends after homework.\nHey, I've become ___ skiing! I love it! Just look at the photo Ritchie took. Not bad, eh? I'm starting to ___ winning the Olympics one day. When are you ___ coming out here? How about spring vacation in March? You can ___ having a lot of fun here.\nTime to get to the lodge. I'm the world's worst waiter, but so far there haven't been any problems. I guess I can't expect to be ___ skiing and being a waiter …\nSee ya! Dean"},{"prompt":"Lücke 7: You can _____ having a lot of fun here.","passage":"Hey Lance, everything OK? I know, I just wrote three weeks ago, but I feel like writing – I have more time now. I was a bit ___ moving to Jackson, but it was the best thing to do. I was so ___ driving from Sunrise Pass to Jackson and back every day. It's funny, but I can't ___ having more time for friends after homework.\nHey, I've become ___ skiing! I love it! Just look at the photo Ritchie took. Not bad, eh? I'm starting to ___ winning the Olympics one day. When are you ___ coming out here? How about spring vacation in March? You can ___ having a lot of fun here.\nTime to get to the lodge. I'm the world's worst waiter, but so far there haven't been any problems. I guess I can't expect to be ___ skiing and being a waiter …\nSee ya! Dean"},{"prompt":"Lücke 8: I can't expect to be _____ skiing and being a waiter …","passage":"Hey Lance, everything OK? I know, I just wrote three weeks ago, but I feel like writing – I have more time now. I was a bit ___ moving to Jackson, but it was the best thing to do. I was so ___ driving from Sunrise Pass to Jackson and back every day. It's funny, but I can't ___ having more time for friends after homework.\nHey, I've become ___ skiing! I love it! Just look at the photo Ritchie took. Not bad, eh? I'm starting to ___ winning the Olympics one day. When are you ___ coming out here? How about spring vacation in March? You can ___ having a lot of fun here.\nTime to get to the lodge. I'm the world's worst waiter, but so far there haven't been any problems. I guess I can't expect to be ___ skiing and being a waiter …\nSee ya! Dean"}]},{"id":"say-gerunds","title":"Say it with gerunds","blurb":"Aus dem Arbeitsblatt: Schreibe die Sätze mit Gerund um, ohne die Bedeutung zu ändern. Aufgabe 1 ist das Beispiel.","questions":[{"prompt":"Sorry, I can't ski very well. → _____ (be not good at …)","hint":"be not good at + Verb-ing"},{"prompt":"On my first day on skis I fell down a lot. → _____ (keep …)","hint":"keep + Verb-ing"},{"prompt":"You get wet at the start – I hated that, too! → _____ (hate …)","hint":"hate + Verb-ing"},{"prompt":"Ritchie learned to ski when he was only four years old. → _____ (start …)","hint":"start + Verb-ing"},{"prompt":"I hope you don't mind if you get up early. → _____ (don't mind …)","hint":"don't mind + Verb-ing"},{"prompt":"It'll be great to see you! → _____ (look forward to …)","hint":"look forward to + Verb-ing"}]},{"id":"gerund-extra","title":"Gerunds üben","blurb":"Zusätzliche Sätze auf dem Niveau des Arbeitsblatts: nach Verben, Präpositionen und Adjektiv + Präposition.","questions":[{"prompt":"I really enjoy _____ (ride) my bike to school."},{"prompt":"Are you interested in _____ (join) the drama club?"},{"prompt":"Please stop _____ (talk) during the play."},{"prompt":"She's afraid of _____ (speak) English in front of the class."},{"prompt":"We finished _____ (write) the report at midnight."},{"prompt":"I don't mind _____ (wait) outside the theatre."},{"prompt":"He's looking forward to _____ (meet) his exchange partner."},{"prompt":"After a week in the mountains they got used to _____ (get up) early."}]}]},{"id":"mix","title":"Mix-Tests","teaser":"Gemischte Aufgaben aus allen drei Themen – wie in einer Klassenarbeit.","lessonTitle":"Kurz wiederholt","tables":[],"lesson":[{"heading":"Bevor du startest","body":"In den Mix-Tests kommen Zeiten, Modalersatzformen und Gerunds durcheinander. Lies jede Aufgabe in Ruhe und entscheide zuerst, welches Thema gefragt ist. Für die Wertung zählt nur der erste Versuch.","examples":["Fahrplan oder Arrangement?","have to, be able to oder be allowed to – und welche Zeit?","Steht vor der Lücke eine Präposition oder enjoy/mind/keep?"]}],"quizzes":[{"id":"mix-a","title":"Mix-Test A","blurb":"12 gemischte Aufgaben aus allen Themen der Klassenarbeit.","questions":[{"prompt":"The train to Edinburgh _____ (leave) at 7.40 tomorrow morning."},{"prompt":"We _____ (meet) our exchange partners at the station this afternoon."},{"prompt":"Last summer we _____ (not / go) into the castle after 6 p.m. It was already closed."},{"prompt":"I'm tired of _____ (sit) in the car all day."},{"prompt":"So far this month the class _____ (collect) more than 200 bottles."},{"prompt":"You _____ (not / bring) a present – just come to the party."},{"prompt":"Are you looking forward to _____ (visit) the Globe?"},{"prompt":"If it rains tomorrow, we _____ (not / have) a picnic in the park."},{"prompt":"Listen! The guide _____ (explain) the history of the theatre."},{"prompt":"She kept _____ (ask) questions during the tour."},{"prompt":"Did you _____ (have to / wear) a costume in the play?"},{"prompt":"I really miss _____ (see) my friends from the exchange."}]},{"id":"mix-b","title":"Mix-Test B","blurb":"12 weitere gemischte Aufgaben zum Abschluss.","questions":[{"prompt":"Next Friday our teacher _____ (take) us to a recycling centre."},{"prompt":"Water pollution _____ (be) a serious problem in many countries."},{"prompt":"When I was little, I _____ (not / stay) up after nine o'clock."},{"prompt":"He's crazy about _____ (play) rugby."},{"prompt":"We _____ (finish) the project by Friday. It's already in our calendar."},{"prompt":"They _____ (be / able) to buy tickets online since last year."},{"prompt":"Would you mind _____ (close) the window?"},{"prompt":"At the moment she _____ (write) an article about climate change."},{"prompt":"You _____ (wear) sturdy shoes in the mountains. It's necessary."},{"prompt":"I'm thinking of _____ (start) a school garden."},{"prompt":"The play _____ (begin) at half past seven every evening."},{"prompt":"After two weeks on the farm I finally got used to _____ (get) up at six."}]}]}],"hashSalt":"XDTSFaapx6p/rEKEtm3ZSw==","answerHashes":{"tenses:env-project":[["qGhnEZLaBJIY6uYryYSmm1BRxqeWKdZV60bA9xKllv4="],["yYKdzg9lBycjKFUNJxGelWSMo/PZ+5Z5BP59SfpKPv4=","Q1Lp+UUsQ4Q3wX920HS9Z1ySbUWkrb6Frzba30hJOXE="],["3VtbX4hbGOuIe/8O3C106k0ESZogjw0rU2VvDf0tBkM=","GZZWFUcK29MZHsW+O5wJd0vQN8Um3ouWBL97eO0QWuo=","0mdRnbow6mOjhP7kBjBdLoXQa4jxJoPOJOwSmN4gAcs=","h/NxcJSL0ol4ak5DcaCf81kzgLDeaR3GZYuGUmE87Ig="],["ikS4ao6XlhBhqSkLJtSXPPAU8863AyVimp12UrNejtg=","wOOBbZkxjaI35idGBEhUwxcwtDrP5GJdQdmGryt+MCI="],["l1g9XxKdAmd+sZn9nuIiG5LHBOk87N1qxp2v584YSKc="],["zU+4Sky1CCErGeDw4htBcHj5JNwiJgkhBQ+j9HS//WE="],["sdLrfNHOdgHkClKEcSY8PS3f5HMRfCxhOnAj259YzIE="],["1JNWFhBssHxySyFQmS/NdAMpOqIGHi4oKx6w2Ub3ccA=","wUpldMyt6/IB49TYLn+LqqZwJ0eaIQv1rBrGSWSLWlE="],["UhbWTSqE8jm45R5NW7MydhMWFSwM2FNJq5q9gLRPMSY=","zRsVfwd8vuTA16aoBPmJ8mW61Z1aEMqUPNYsRWVHKvE="],["A8Ad2af8ro9yE7eUyV28rtTMMhKBOgvOdUtD/Wbvt6o=","QBSd6GsEg1KebDd0tRFPyoht6H2GA7NVqKDKC7THP48="],["xNYQD5b7Nbx0hhXiuZcTakQiqMddYOLJLwbkSXYTt2A="],["6EM9rSpqnjIYUwUDxtv49IYPvqs9CMfDr6xNTdcr5gM=","HtVfSYGLeaDQ6s28j45pycnBosFqeV0BtHlo+CZ42FU=","ZvHhptSVCGbm055LFjUYhUjyBuL7TWf7C1cpY2/wTPg=","U+J4T8y+Zx2kLAJN33895zejGo6qjAwE4lZUdw8FPPM="],["1VbtubZjSzBL5l92gO8n/hBK+6SQVLsvqrZq4kMCkPI=","efWMrhYP86/ANEf1GniKmVwA7c1afjkB+TsFlB0QNa0="]],"tenses:events":[["QurqB9glgD7ovUa0IpA8tfhniDE6FY4S9BRSKp6/NSk="],["l1g9XxKdAmd+sZn9nuIiG5LHBOk87N1qxp2v584YSKc="],["CxqOjoXY8LPU8VrTS84OUJZZVPVjxgFBzFqRFtn3OnE="],["exjVeKf2YmduQz1XJ8vF4JJzRag4ZZS6Pm0thU/Ftz8="],["3NFz0X6b/QJPwf1VpDzCH3PXOBBTN4u/4zN6hx8hcLw="],["mK19LfWMOCFAvoEJFzcqbq9UypFHdViOEVKG68oo/4k=","DGa7wusOteEUT7IwLe2HHobG33XLgLda/hmWmVpH/+g="],["Z1xZsClomEh/zx6lOr86G7DfTDD3kFoIm6DoxyPW1QY="],["8Mm9LKlMTE1ZfvtbutTWe0cNWaWEtC0Jdhvc0aJlScc="],["tioCeAJ2asvy/6GU/IzMRQolsyRbRZ8F5HZdUtfpkVs="],["04ralKliX64+YfqXFN782JQzfYaxNOWGZgZJgeQrRVs="]],"tenses:now-or-always":[["chCwGFmR0JdJLD4+CCbcPqeFfHtkxnOcKyIKy5RlV+s="],["l1g9XxKdAmd+sZn9nuIiG5LHBOk87N1qxp2v584YSKc="],["ahS/0r/1ehbHpL2JvgRg+DkqR403CNAC72Xi3xvcFLw=","gVhcNpPcB4LoYN//z57XGQImoAyDG9M61yX4adRmMzg="],["kgD9tWAOTAhvG8dDGytg4qNi47HyM9qj91W0ZdCaDUk="],["8Mm9LKlMTE1ZfvtbutTWe0cNWaWEtC0Jdhvc0aJlScc="],["feHFBY8fJ1w9KMp4yDqo/kURwe/70JmHEX08zcD64+Y="],["ym7g++8qWWxlon/MmY9d0nAsR5Tv7Y6TCOiVInyryBk="],["7Ti/NvywCMNTpVqt6BI6yagR6yNofqxZmDkMniZQ8r4=","IpdhFrFLjFiO3tEnTaGnnYd2RWNqqc28vjWVKJWp9n4="]],"modals:scotland":[["0ggEhBTdwQPu8f787/tbjpWlRDzVK3j163iz2B3RXZg=","a2Jqp828NHllqdj5L1xUigjA5FiPTcdoRvLtGxb9gMY=","nMyhB4OC3I7GNWTuLJKo1ZSlQUfeuyuUCkz8Kyxhldc=","bqAmYpUKuYsQ6RYRbu4bYkddz0nhZFsPkYfuIa96jvE=","8N0lW5qJiZ6K8LVISMvwfPKD0hgK7k+LUfI1Pzh9rn4=","Z5wXhcWWC9n53Tj37CaDwaySR5e3K12/h5k24e/YIxo="],["wXqi/uA/rGKPX3XEhgqi0v3lIMm9DwXbdwEqdkE2cVs=","1d3NZeiE8b1Aufd9WVA09FNVUq2Wp7ahDi3lJNOciLM=","svMv1CnYdnwk977LBGQzDaNhR7/krHx58J4tDJDZ+Kg=","erDuiLnbGpc9I79fl4Im/2onMuNi2FQakRIbUJQbQeA="],["+VydQLHhOSNIvFwKalGRu0oxF2WYbLimoIpy9pE9kkU=","xcpCSSrpWHL+V+YSz+L9aPaAORByG544OQNe6h5YWIM=","vzr5AEB9Mkb/v7XcoPAx5P7wbTOeeogZ038xLfuqTsM=","hUxEzMEhM8oxUHSO/srYGl7Dqcc1NdM6eyPfr6p0YHc="],["hjYW6P+aQdUQSIvCmUdykQUkJU7eumlFyBpCyfXGV7s=","jxy1kkHIjsVYGsLM/vylhkaEtvXgVTNoLTR4e316k9M="],["I2bkFtEBWnQtXFO1q6ne5xIqHgwItBDO7U8ar5p/5Jo=","1lXHNg97CYLUhSNOqTTtmQ5QS3rK6tLafvIj5QSYtq0=","Id+0dIhB3xbZExIADpNHrp8aqtWDCi9PfnttkoDFLMw=","qtjUnrjxMKHKwzs5QeoU2ndQFIN5yI3TFZNcMZPy4hI="],["OXYCo2v/mE41AwjMywbvqZ/YxU+NgAqzy3CCDCKMhdA=","8nHYo3YpJWLqRMHCNRcudKqh30bk9lGu13OwQbvdm2I=","mG2uzKfHy1eelN5o/hykbzJ5uWGXEQr8br/6l6T2hO8=","s22/nPadcgCclhrCMpuhLrCjwDBHM4XH6cJwoKs9+aw=","+8cjPcxNn6fXCA5K9IzPX3XeTJWXCfvPUgu/4MaGlXU=","DramRx08Vu0RtfyX5u96LEvaKRniAPe3uaTbF5pBC4U="],["04c6vQm57RXb4ykxidrTxvGl18aETJ0hgAOiEJQFhgQ=","vW7IOG+/yk9Z5CgltAdK8o6SOxe1emxBJDukuRseA0w=","dvOOC5GhlJVhNPG0nMB7E0a+JIq8EIiCrpq2Ap/1rUY=","K+6f8a16LcHCWeB+APuD6TE/S5C4FI5hWIcGC5hY2bI=","wBCZMn2XPlDWQY3e9Vupmk/vbST32wwhpK0LbGRgRtU=","xGMLDg53Ke1P1+WQiYvJmgd/bLwwuDzx4RAzo/1iqL4=","if9D3pSRG8bXqNa6d3r4oKro9qtWGqIwQc20spdFgmg="],["A891hw2fYov0J986WkkVdw3LtTDCwtL0ZA+DPk8YY6E=","b3DJphn3xPfTuKfxMJ2670eKqHGQREKbBx/EdVPXKUI=","gY7NQuUQRP7EUxamwTc5uDkUx+jt1XBSJTdsEkA0QTA=","mKUyERqbQU/kSmJwbFdTq9tMNxI+JUf1vJEjY35EXgQ=","6eNsw3bilDIiVQmfl4L9GLJiv97CpHhkCgKYYtKMVr8=","Gd0APV3h6CoVsCjvOYfrpFkLMFlemsyHaAH3qS4YJIA="]],"modals:diary":[["hjYW6P+aQdUQSIvCmUdykQUkJU7eumlFyBpCyfXGV7s=","om3JS0ur8ov/0KDv0pLfmszCkIIgEctgvP802M9d+wA="],["EmprI4HpZFljceq6Cm3nQVJ2QBlLqlooQVz9Z/FzGu4=","9F5cb/j8XpOkLBvKkMhl82bQomPsd32CjMaK1NL8ah0=","WGL8osXlVV9TlDrxkbNwEj/TtLSnOFSYA8yFgeXPwTM=","sCbxLHwU/JJiQ/OYfxCIgt+jLzFsT/3kLnJFbp+FOO4=","e9FWnbM54nI+IXT2EF3rMPJzLPNYwN6ATDkzNlL9OVM=","XSzmaKWvmVB3jPSZhUQsdW1JN0ljzD1llv7l+7MlYds="],["hjYW6P+aQdUQSIvCmUdykQUkJU7eumlFyBpCyfXGV7s=","dGfxjeHoY63Idjcq0q2Br1HUcWTJtFsmA0l9A95T/jA="],["EmprI4HpZFljceq6Cm3nQVJ2QBlLqlooQVz9Z/FzGu4=","9F5cb/j8XpOkLBvKkMhl82bQomPsd32CjMaK1NL8ah0=","aWT933jftf+lmnZzqnKJ6QV0NIuaCANT8z2ZIUmZXps=","zjJbVboIuKMOwiiQNPTNw413qHLMMUzgKr44oOUD2Qk="],["z4HNWoziBE6UqfLdn8vtu3rmkMpX9oTtCOldZ1T/B7g=","vuWeaOLNweJuQxwyZhb0Ag4mJv6PO2obwVPHCGbTqWk=","cyZdq2nj83EibpHhBKhfwVSIBrRTgaEKho3tsaJcB2E=","71lTTLSGv/QHTulw2WXeXdpyyMj2RmqCKMUpjiEbxps=","/2sZNVB+FRWcB2Tnb+5jvqXgR67HhONR15X9ByI5/U0=","gVZHpQ4Too3aAqYbnKmmWy6+md6I0MMIa8r+ZH5XCiQ="],["OXYCo2v/mE41AwjMywbvqZ/YxU+NgAqzy3CCDCKMhdA=","JqS4Gwz9IJz77ZBkQq44/eSIvDnoe5z71iNf/nY3umo=","0E6D9M+ZFI+Qks9M66NeY7Vhny0lHKKVwoHxcklcxJo=","W8r83NTCyVqli7uhMnkVkeRgLHVWlSWi8Jjm6M7IzDM=","Tx+dX0EnX28EDTdzQQbdtduH/8qFiNn3OXO5L6B588M=","B8soDO0/sMgcDZ3pwTlZKj2etXzdcXYaq8cdDGOZ3Fw="],["OXYCo2v/mE41AwjMywbvqZ/YxU+NgAqzy3CCDCKMhdA=","JqS4Gwz9IJz77ZBkQq44/eSIvDnoe5z71iNf/nY3umo=","0E6D9M+ZFI+Qks9M66NeY7Vhny0lHKKVwoHxcklcxJo=","17aXSbJXBjOE/Q+8+tgQe1zIO6j7HlxivtSsEFIaP2I=","ZTL41VheBS77N960CfJSnlf3vMtUn2+8EOmWUyCM6jM=","sxbCyJvO8c9JojkbmHzp8TYuQkvcUnnQqKM3TTtAFRw="],["04c6vQm57RXb4ykxidrTxvGl18aETJ0hgAOiEJQFhgQ=","vW7IOG+/yk9Z5CgltAdK8o6SOxe1emxBJDukuRseA0w=","ppSBvGMwavF5WFbOEHUG9oWCT6ztLxcTMI6yaWUG7pQ=","QBsI/JPBY0yjL+XF31N57Z8To3ZGWdQzVXV81FshF+E=","61+hfbu3zvoHwBOjBleyVWVIBUGdO+q+B13+e2DqIWc=","Qv5KM2Q1bKQqn4VLRUKd/v7oWfbbsS053fgIA77iaYc=","xKFzW1KzvvmlgzMw3Tl8384EMGXKH5vuoOwdgoS43wo="]],"modals:globe":[["/Q2EbQHoPINKSc0XSsTMUM6ATBs87TVWWY228BG3Qik=","Fm13tPlEILdyYlCspnvDUXCvqS+eYCCg4ahu1V/P1ZE=","WmeyY+OpF3hSCPq8CTl7Ip/U3MGH6DcmEKEueJo/V2E=","5ANacirBazaJNU+nBuzdTc2ab5UrEtWMloG/j7yIcPI="],["OZ6iVrCd/ZTfvtljG0WevCTqh4qrjoDcfrHKl1/jS7w=","0ggEhBTdwQPu8f787/tbjpWlRDzVK3j163iz2B3RXZg=","dJ3jc/4AqnGrNCbwzRhpJGboGAVECRfQeaFZGdY9yAs=","8N0lW5qJiZ6K8LVISMvwfPKD0hgK7k+LUfI1Pzh9rn4="],["CH7R0Uw5KaKmJLeFQrtzK1jvWAbebtigREiGlrtmAEI=","H7IW0BkG9F5mWYQLV7Eka2fESmmu8Sd229A+g5Fn2+U=","o4i/vWb2+CQpc8lKGd6Dzv26ccAqQ/5dI/Z3Q+Hsnts="],["vTrotox1YPTXeRdeNrV2ED1NzaGSI/fACljcVfE5UzY=","4ldrXPHHJDbeJdcWIcscHNJEMDoxYD4dZ29dvBYMx0s=","cvJYINY8fC1kerbur+Z8hUsOykt4r+vmbOlAbM3ip0M="],["s2+aN81+xfhR8UH4sXeE1HCMvc8fQpdXa8LAq7DstOo=","b88mrIs0ywKdU5FoYaLRzMAa9++48oujlmMUYWjydDw=","8Y4sJEKl2PsxU00klYgb52UMEDsG3RtYory/oaQVRKs="],["w6z9jsykp/Cvsy9IQZRYQj1+cSNrUNSw7NV2c/bC3dU=","bhbRqyF1WSlo2To4m9sBcGcPZ8j2saWvz9RVrGtTIkE="],["Id+0dIhB3xbZExIADpNHrp8aqtWDCi9PfnttkoDFLMw=","qtjUnrjxMKHKwzs5QeoU2ndQFIN5yI3TFZNcMZPy4hI=","6WzPxOhtGl2f5c2Uyf34cqAj1g73RKonzyMwCg6Xl/c=","1ea1EXAxnpN2dhYx4xCgct7/G2rlj9S4FeqDiFhyJhE="]],"modals:at-globe":[["K6IjLgyBCysYnK+9OYYkcBXByzQc+4NVf7vcbacgd6g=","d/KGo8ZH9E2Ex+mtneZIJ0iABj8ubyo0QqPg6DbNlsw=","oUamRhNFuL/dE0VtVmILmrvOP6XC4QPiRC/cv9D+mvI=","3eRRxoavPeRSktqIl/5fmxCZ+rIsIZMdKREejxB6iKg="],["iZ4JRzdq4Gm9Nqt5p8NFWVWKgFCN/MVbV4p0i4NIGCQ=","xOPzbds8tWWoLYtCs0J63FEdeudE3QPN8yMVPsLOTEY=","yHXGbBE3P/zQV0hyz4U6yNvIngUBUppGljhMNejklo4=","PGjlCKGPniPaMq5vypYE9deOAjHNLOodip/uKQs0hwI=","Vv//tHdy+L/1jzLVvJMkysPKGla7Gq9gMj/6D7Hc+x0=","9fGawbidLUQE+3bxOk0RK18mvjRCoRU8caGVHIotzGw=","w6r8JEV76rSGoSeQUj4TiWcQlQiAc3uVUQ5rvFRplyY=","gN4T4LUzzugsTy4WOdRuyW2d3twOMUFqJnFA7KjR4lI="],["vUOEgUrICWEiYhBxkZRxHNcGPwKqPIZZxvLzeZyc/TY=","djSps9VSKLq+EhmZ9PH0JyiQyd4DEkNZSw1piv7CLYk=","7NhmPF5xvSaOjQS9/oPpiXdI+iacI77UfAp1+o5pUTE=","BbbV2XTkBtsuVbbj6Ko10BxUiOgfp1BmV1V8PorbjsI="],["vupsvbaFHiY1r8Htm8E1L0E5JuQwxahZpkedJUVO08Q=","QlTPamTFywjqYjRXoV9eb7y91nw7HZ8uGsfCnDSnqWU=","TDExigqHxQ5hIv+kmewMY5WXgQXb+WR+IyLmOQQm1zw=","VTa6x8tAMZTbTaQJ+75Uj89mBKOgNKmiPe2KQO6xGlw="],["QGUULGgwg1kEESY+v4WH+ZfStkweIKPho54tJmqAj5s=","rE+i6jpf02aRMNP+TlWuf/4lARZ1MYFA7nCoBESjvNc=","ozOVTHyikYQ7VUKtggnUggbMDDCCODQu5D8zIFW8SNM=","Fv5SpmHMQXM80DDNteKPLGszzEIxoo9G+fdkQl/RPSY="]],"modals:modal-extra":[["pE0/DAj0psGbQrykOlW80hgB3GJU9n9SJDPIysv5nNo=","EGluiZc+DoYprFFyVchzGGdG5Q1d8QYFdDdtwQGuQHU=","7QPCSGhVEExYp0nuarHlHwtxVpq5FiZxR3Uz4VYCtyI=","InHe1wAs6w2wJdOdl2QaGfkq3soHmvVeRABFhYthRgk="],["C0rL1m3czgGbp2Kqnsner2Y8AEDyu+R187M9JPwordw=","XhFl5MSkLxc5KT6wteaUpG/ArM8UvOYFt/d/brADrcA=","huWyNTmgqvuSJ7CACXYWfiGPeDQ7CcbHxhnrSh8Ku9Y=","GoXkDZ7MJtBbzbPDsbR6ICaeJJY34hJZavQij87GB68=","ZgKbySTkdO7lap40zN7sMwV1mKXWK9HTn14xkr5EK64=","29sC8AEx6tn9uMQYceepQfaBfUSEWd/V9iFnFcoROzU="],["mi3rfcvI3vehQ3m2yZpAQ3zOyufWK8/vKZ/MK58qiH0=","8Px3TLhJa1BtZd9zri1lgka0P/ZAWiXbwUdHE25JMjU=","COwbsETd0MaDGRgDq2mM/KwmPEt6bz0YIMVryv+LXb0=","OXYCo2v/mE41AwjMywbvqZ/YxU+NgAqzy3CCDCKMhdA="],["gWAusbiuYakbJeOB0T9adryXnTWl5TCGUv05ZAy46tU=","0klEK+u0LSgotk74f1kiouwslAdoP1FK5QHuA/56jKs=","EmprI4HpZFljceq6Cm3nQVJ2QBlLqlooQVz9Z/FzGu4=","9F5cb/j8XpOkLBvKkMhl82bQomPsd32CjMaK1NL8ah0=","r7yVrd7Xy8dmzxzHk9b4R6fEUpm2C9Jrj8/jg6SSq7E=","d/U5O2Ti6UwlsAJ6zMBE+pVEqSvyYY8FLaLmHLAGOes="],["OZ6iVrCd/ZTfvtljG0WevCTqh4qrjoDcfrHKl1/jS7w=","0ggEhBTdwQPu8f787/tbjpWlRDzVK3j163iz2B3RXZg=","dJ3jc/4AqnGrNCbwzRhpJGboGAVECRfQeaFZGdY9yAs=","8N0lW5qJiZ6K8LVISMvwfPKD0hgK7k+LUfI1Pzh9rn4="],["TYB2JTFSu30gPuEyOZSZk9byslVCM9B9btUu6CUSLTw=","7ZwqatXSixjoy9P3DQdRU+ao+qySLCvMZBnoh8gy/4I="]],"gerund:dean-email":[["zwOHepkN7R5/KPtLLbhYPzmu90QDCUsDdB0SdoF/7Nw="],["8Agfe8JQZap6wtKVWpnmnB9f0iLIIkvZp8cGecxBhLI="],["UbdOsYQnxWKupccc9qsIEgiYZTjpZt/fepeDgShtrWQ="],["41MG8ZHIIQttNKAEXqqcol+vgK4ZNk/aJcPWiZ2WrS4="],["tpdtYTMKI9De2xLVlF1Gviz/REuADKJ16TWW8FiMCps="],["OiWosrstv4O7g8cpYklDfuEqk+SCAW/kKt3mRzNP14Y="],["J83dQl41McAlNZjVicp/hfi++2v+iBIiDzZ8hWXzVvo="],["+vkN/5bnEZBH0v2i9/SZtxGE1mSF6PcaFQ7HK21o5dc="]],"gerund:say-gerunds":[["2wHQlTtOXmRGLnYGQ9veuaZTy5npUbgAk0jhct/Pj3U=","eCPNJ6wvR1GBElG+jmCw8N7LKtEVZlWnsDMK9MDMvVQ=","0T33XaxujLc/RhIGEmPpbfpqg8yvUhJHJ4DGDxGTooU=","H/BBvfLsy+vA552IFVjVPWfxYpdhX2s2whScrr1Fauo="],["6t58K7ukKyjwFXqwrafbuww+d/S6LZuTIdMbrVO+7sg=","8iLOeCuiwLMIjPoZBhZXPe/e3loanMbJ0hZYs3aiWQI=","bsIx+6xJjt4Z/ukZ/BRtnvFydKdLIDvXPEaSHf5b15s=","ghLRMe3WGQiLgDKoAxhoLX5wryid5EJyek160JRg1JQ=","2h+FUPXNl3Tlrn0cBHQFIjd5Ga1tNOWZ0MBd+/+jEN8=","0EhuHdw/zpaBJM6kNQ5ftxSvJw0QLCI88dOE8Lxbur4="],["Nx8Vd7fG/gsrFbJ7MvbDQyHx4+6+l4WnxGTPnc9smQw=","DWPPKvIvpGpD0vfKLl9WG9oZjg8gmUBCq74JhYSWimo=","618kv+5gK7WPEVYGXnyFRJ1eRWZhMlPrQpkFohZQ9hI=","y03XH9PFWrZh1aOjg4yee4+kJWwKCdfyulXDOI5a5mQ="],["hV8bNpmSdeycZkRSQb3NhmyiVaMjARHrQG9wkokCF/A=","8blDUZ8s7rUc29pNCMV5Vbw3Ot5T5ljHZ3Iuqmm4Asw=","IeYP3cnOdnuWHvC8jCF/b5px7AbYv8ZfNetM9+viouI=","bZ59pMDOPm76wGz5Jl8xd3hV7aaiTaergBcYT8ypevg=","8j9wDRXj5D/HPnj2noHL6g+8O0L9ENAEHOdbHV5e1ek="],["VmPAmFeVlWDOHRpp0B9//E8VRw2xu1LKTqJ+KIMK2+8=","AZEKTMPdF5RF5m74P4ZT/Ar78KlZP4XzhP+mCJzoNQY=","8/B4eYOVc14NePaGY6yhUYZYwJQ1lRcez9Zal+wmq2s=","ecSKkpzYKJg5oOSvantbGEyDTcGvVwjnlAjtjXHqc0Y=","rXWaW69tjVOH+toGw++1dzXdUDuWEaK4mzOdlhgm30g=","6937gyjGWeqTp7jv65zMuoxyQ+pLMxw/jUwnNq2SFuo="],["nOqhpZBeSsQ3NccEOXxJ8EV6rS1To0f+02die6TetjE=","e+8Cs+pSi2fyI8kyLaqXPQgyJGLsmOPctLo/DxkmTi0=","rWrg204GZ4qXx+oAHT/qC8EB0A00GgtJPs8nH5eyQAM=","PrJKOQR0AgWVyxx+3F68Q6cExi0hdOBHWcavmkqU50c=","yGQgDeQIXRgIxrXiexgIU11/pY3+2WHmU+pxRHvAZ0c="]],"gerund:gerund-extra":[["ok5xEWnW3tbiUPKqJpNxLbRKtxa4N6d7H5tKOigHqu8="],["e9aXATx5Ertn396uRIOo1j48lTrn4CJpkI0hj9+JZTY="],["q1YSrcHhXj6h2fzC9uo17fIMowbmvHeFOMJLrvRY3hA="],["WPK8u/wfGD2yF1jEsd4MgUx4QqgQSeKsyLmx+0B1vxk="],["u2CDE1KXJziHWilt3ivADd6Ou+8/+snErcikUTUiPVI="],["YLSLX3o91lwUl6PDBBYRjY0s8VxUFEeM55eziwAa0DY="],["u+3c+KYwVr35DkTha5THChehmLSivoWir4fC7XYd3sg="],["ZseIcQZ/gY2MGjM0f4sV8D0/LAxQcR0kNd0LVcY9r8I=","dkI2fis+ykBmeK5JB6NiSDMhXZHltqtHkUGLOQNZuOs="]],"mix:mix-a":[["8Mm9LKlMTE1ZfvtbutTWe0cNWaWEtC0Jdhvc0aJlScc="],["6OJ3RmLwH1Ck5mTC2BVrISw2vIs4wGIR4dG2a271Mh4="],["AKVxg7mSpgeG/IG+LLd6i9oVmFpatocpfL0L711y+/E=","iNBrdk0Ps1IqWlJTwIY3De5cc97pFYQYR6KxMJ+JYSQ=","wXqi/uA/rGKPX3XEhgqi0v3lIMm9DwXbdwEqdkE2cVs=","1d3NZeiE8b1Aufd9WVA09FNVUq2Wp7ahDi3lJNOciLM="],["cuxZuPxn86/oq5j9GgFLLQpF5c+XXtRh9z80iugcphA="],["1WX5lUqzPMXe6uS0qBMeKaIScwemh43DF0u0y3iJ3bs=","ifdNN1CEouxyRiOmJtKPZASkArQHsKc7XEC1VJ67Z4I="],["fL8vhyVne0GQp9OZh2VyJJynP0QwPvUe74TqKyy0s5o=","LM79+oJf/Q72n2NKrwdIJdVSO4tdMiY9fy5yEEvSyhc=","I2bkFtEBWnQtXFO1q6ne5xIqHgwItBDO7U8ar5p/5Jo=","1lXHNg97CYLUhSNOqTTtmQ5QS3rK6tLafvIj5QSYtq0="],["gDqrKQpgL0x+oX1qJB9iQW69irlfTsEONaRCzNV6A0k="],["WgV2cwUZB9+GXvzGv8mGJjGHS0lc8zsfJrSIlSXAW+4=","fYjMkoomYRKuOJBvFVAbdPgW2L9fBACSIoD8Zr0w+J4=","04c6vQm57RXb4ykxidrTxvGl18aETJ0hgAOiEJQFhgQ=","vW7IOG+/yk9Z5CgltAdK8o6SOxe1emxBJDukuRseA0w="],["iOJcvGThnFUJcqRt8FoKzeAoxR8242ca5ta9Z5XkOGo="],["WikHfFh+iFW9hJe1HNpika6HQVaSYB5PuNNKelHb62w="],["ZpmJ6Z2pZACgLuiYsLnBXAIG9xQalVIMyxExNMX22m8=","A891hw2fYov0J986WkkVdw3LtTDCwtL0ZA+DPk8YY6E="],["CU7VV2GdmIxAnWYf8wDKw6nprq5uNX/4231h05vjmbQ="]],"mix:mix-b":[["QurqB9glgD7ovUa0IpA8tfhniDE6FY4S9BRSKp6/NSk="],["zeesxCvyomXPMhxkL/Sstem26xzWv28jrzyjlQBRcpo="],["ZoZGwArXKn2d6QGM5VBs4t8IOlA+SQtz3eoI0ItmfpA=","1fvaM7TQ4P3AUfpwDmVR0ySlCggkMH3MU2vRxBKvXt4=","acZ23ENYJYF0sFtj8M/akdnmBwMnzclf2L96LBG3Bs0=","a54DnlP7yOXID8/8FTTBAVfWYt1JnpfHKtM/nzO0suo="],["c891NAeTQMzWBHT/+DWJALAY6g/avq8CZVP8rX1hJpU="],["YsI6K1pjbwcbrzSfhrb4hO3xbtEcjGZdRj+vb8NAG4A=","rThKhITqinJW92y4lkEX+GXDQH+0zZiHqQeZVAlGcEE=","ntGqs6CTdHiLEaL8bQRvY0b6aMLBtouQ+1pmHPAcTuY="],["DTXf8cTcty7aTCfzVNP5xj7ILxchuxAXgrpdZOFLjsc=","+h7IRKi/IU3LkzT0KfoZrr+Bh/oHm6IUEqPxByX4rpA=","/rJmcDIgf2ODnOnoYg5PIhN+HV7QL4M6mABQBnJ65uA=","rXwIJ3UyZr0HV8m6P2qwqxrnTbfwBvMp0T5exJN2UmY=","JP3CRn31mdH7zNqtbmHp8aAyBIGdPSNGPZ/p+uRt8SA="],["YiTb4FXlUQ2Pd8n+8AuoKC5iq/2lCH2/2jAsNigtdLI="],["dZpGcClwzNIjBQFX233k7AoN1tUjJQKjSOA+ZjFUNGs="],["ZpmJ6Z2pZACgLuiYsLnBXAIG9xQalVIMyxExNMX22m8=","A891hw2fYov0J986WkkVdw3LtTDCwtL0ZA+DPk8YY6E=","ncIs35gab9x1ktXYpkvj+Ouu1uUQVRfnwRMXlb0OPXw="],["lF8p/lHacoxLXfYislQSdiTWkjcHNVLsnfsCjnutwHA="],["RfBp3lCrSJ3BuJzfjW7AZhLX+qqMHRRDZWBfoGszdio="],["dkI2fis+ykBmeK5JB6NiSDMhXZHltqtHkUGLOQNZuOs=","ZseIcQZ/gY2MGjM0f4sV8D0/LAxQcR0kNd0LVcY9r8I="]]},"vault":{"salt":"5IkomkQMdJlqY4x1o4OLTg==","iv":"aOuz0D9zxFgps29H","ciphertext":"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"}};
+(function () {
+  const meta = DATA.app;
+  const STORAGE_KEY = meta.storageKey;
+  const ITERATIONS = 200000;
+  const topics = DATA.topics;
+  const hashSalt = DATA.hashSalt;
+  const answerHashes = DATA.answerHashes;
+  const vault = DATA.vault;
+  const LOG_KEY = STORAGE_KEY + "__attempts";
+  const MANY_ATTEMPTS = 3;
+
+  let screen = { name: "home" };
+  let progress = loadProgress();
+  let quizState = null;
+  let unlocked = false;
+  let solutions = null;
+  let pwError = "";
+  let pwBusy = false;
+  let resetConfirm = false;
+  let integrity = { ready: false, firstUse: null, counter: 0, lastLogCount: 0, lastLogWrite: null, parentResetAt: null, wipeDetectedAt: null, warnings: [], sources: { ls: false, cookie: false, idb: false } };
+  let integrityQueue = Promise.resolve();
+
+  function loadProgress() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return {};
+      const parsed = JSON.parse(raw);
+      if (parsed && typeof parsed === "object") return parsed;
+    } catch (e) {}
+    return {};
+  }
+  function saveProgress(next) {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(next)); } catch (e) {}
+  }
+  function loadLog() {
+    try {
+      const raw = localStorage.getItem(LOG_KEY);
+      if (!raw) return { version: 1, attempts: [] };
+      const parsed = JSON.parse(raw);
+      if (parsed && Array.isArray(parsed.attempts)) return parsed;
+    } catch (e) {}
+    return { version: 1, attempts: [] };
+  }
+  function saveLog(log) {
+    try { localStorage.setItem(LOG_KEY, JSON.stringify(log)); } catch (e) {}
+  }
+  function clearLog() {
+    try { localStorage.removeItem(LOG_KEY); } catch (e) {}
+  }
+  function taskId(topicId, quizId, index) {
+    return topicId + ":" + quizId + ":" + index;
+  }
+  function attemptsFor(id) {
+    return loadLog().attempts.filter(function (a) { return a.taskId === id; });
+  }
+  function recordAttempt(topicId, quizId, index, given, correct) {
+    const log = loadLog();
+    const id = taskId(topicId, quizId, index);
+    const n = log.attempts.filter(function (a) { return a.taskId === id; }).length + 1;
+    log.attempts.push({
+      taskId: id,
+      topicId: topicId,
+      quizId: quizId,
+      index: index,
+      at: new Date().toISOString(),
+      given: String(given == null ? "" : given),
+      correct: !!correct,
+      attempt: n
+    });
+    saveLog(log);
+    queueIntegrity({ bump: false, rerender: false });
+    return n;
+  }
+  function officialFirstScore(topicId, quizId, total) {
+    let correct = 0;
+    for (let i = 0; i < total; i++) {
+      const first = attemptsFor(taskId(topicId, quizId, i))[0];
+      if (first && first.correct) correct++;
+    }
+    return correct;
+  }
+  function formatTime(iso) {
+    try {
+      return new Date(iso).toLocaleString("de-DE", {
+        timeZone: "Europe/Berlin",
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit"
+      }) + " (Europa/Berlin)";
+    } catch (e) {
+      return iso || "";
+    }
+  }
+  function sentinelCookieName() {
+    return "la_i_" + String(STORAGE_KEY).replace(/[^a-zA-Z0-9]/g, "").slice(-28);
+  }
+  function sentinelCookiePath() {
+    try {
+      const p = location.pathname || "/";
+      const i = p.lastIndexOf("/");
+      return i <= 0 ? "/" : p.slice(0, i + 1);
+    } catch (e) {
+      return "/";
+    }
+  }
+  function parseSentinel(raw) {
+    if (!raw) return null;
+    try {
+      const obj = typeof raw === "string" ? JSON.parse(raw) : raw;
+      if (!obj || !obj.firstUse) return null;
+      return {
+        v: 1,
+        firstUse: String(obj.firstUse),
+        counter: Number(obj.counter) || 0,
+        lastLogCount: Number(obj.lastLogCount) || 0,
+        lastLogWrite: obj.lastLogWrite || null,
+        parentResetAt: obj.parentResetAt || null,
+        wipeDetectedAt: obj.wipeDetectedAt || null,
+        written: obj.written && typeof obj.written === "object" ? obj.written : null
+      };
+    } catch (e) {
+      return null;
+    }
+  }
+  function readLsSentinel() {
+    try { return parseSentinel(localStorage.getItem(STORAGE_KEY + "__sentinel")); } catch (e) { return null; }
+  }
+  function writeLsSentinel(data) {
+    try { localStorage.setItem(STORAGE_KEY + "__sentinel", JSON.stringify(data)); return true; } catch (e) { return false; }
+  }
+  function readCookieSentinel() {
+    try {
+      const name = sentinelCookieName() + "=";
+      const parts = (document.cookie || "").split(";");
+      for (let i = 0; i < parts.length; i++) {
+        const p = parts[i].trim();
+        if (p.indexOf(name) === 0) return parseSentinel(decodeURIComponent(p.slice(name.length)));
+      }
+    } catch (e) {}
+    return null;
+  }
+  function writeCookieSentinel(data) {
+    try {
+      const maxAge = 60 * 60 * 24 * 730;
+      let c = sentinelCookieName() + "=" + encodeURIComponent(JSON.stringify(data));
+      c += "; Path=" + sentinelCookiePath() + "; Max-Age=" + maxAge + "; SameSite=Lax";
+      if (location.protocol === "https:") c += "; Secure";
+      document.cookie = c;
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+  function openIntegrityDb() {
+    return new Promise(function (resolve, reject) {
+      if (!window.indexedDB) return reject(new Error("no idb"));
+      const req = indexedDB.open("lern-app-integrity-v1", 1);
+      req.onupgradeneeded = function () {
+        const db = req.result;
+        if (!db.objectStoreNames.contains("sentinels")) db.createObjectStore("sentinels");
+      };
+      req.onsuccess = function () { resolve(req.result); };
+      req.onerror = function () { reject(req.error || new Error("idb")); };
+    });
+  }
+  function readIdbSentinel() {
+    return openIntegrityDb().then(function (db) {
+      return new Promise(function (resolve, reject) {
+        const tx = db.transaction("sentinels", "readonly");
+        const r = tx.objectStore("sentinels").get(STORAGE_KEY);
+        r.onsuccess = function () { resolve(parseSentinel(r.result)); };
+        r.onerror = function () { reject(r.error); };
+      });
+    }).catch(function () { return null; });
+  }
+  function writeIdbSentinel(data) {
+    return openIntegrityDb().then(function (db) {
+      return new Promise(function (resolve, reject) {
+        const tx = db.transaction("sentinels", "readwrite");
+        tx.objectStore("sentinels").put(data, STORAGE_KEY);
+        tx.oncomplete = function () { resolve(true); };
+        tx.onerror = function () { reject(tx.error); };
+      });
+    }).catch(function () { return false; });
+  }
+  function writeAllSentinels(data) {
+    const written = {
+      ls: writeLsSentinel(data),
+      cookie: writeCookieSentinel(data)
+    };
+    return writeIdbSentinel(data).then(function (ok) {
+      written.idb = !!ok;
+      return written;
+    });
+  }
+  function earliest() {
+    let out = null;
+    for (let i = 0; i < arguments.length; i++) {
+      const v = arguments[i];
+      if (v && (!out || v < out)) out = v;
+    }
+    return out;
+  }
+  function latest() {
+    let out = null;
+    for (let i = 0; i < arguments.length; i++) {
+      const v = arguments[i];
+      if (v && (!out || v > out)) out = v;
+    }
+    return out;
+  }
+  function buildWarnings(state, logCount, missing) {
+    const warnings = [];
+    if (missing.length) {
+      warnings.push({
+        level: "warn",
+        text: "Sicherungsdaten fehlen in: " + missing.join(", ") + ". Vermutlich wurden Website-Daten teilweise gelöscht."
+      });
+    }
+    const resetAfterLog = state.parentResetAt && (!state.lastLogWrite || state.parentResetAt >= state.lastLogWrite) && state.lastLogCount === 0;
+    if (logCount === 0 && state.lastLogCount > 0 && !state.parentResetAt) {
+      warnings.push({
+        level: "alert",
+        text: "Daten wurden zurückgesetzt/gelöscht am " + formatTime(state.wipeDetectedAt) + ". Zuletzt waren " + state.lastLogCount + " Versuche gespeichert" + (state.lastLogWrite ? " (letzter Eintrag " + formatTime(state.lastLogWrite) + ")" : "") + "."
+      });
+    } else if (logCount === 0 && state.lastLogCount > 0 && state.parentResetAt && state.wipeDetectedAt && state.wipeDetectedAt > state.parentResetAt) {
+      warnings.push({
+        level: "alert",
+        text: "Daten wurden zurückgesetzt/gelöscht am " + formatTime(state.wipeDetectedAt) + ". Zuletzt waren " + state.lastLogCount + " Versuche gespeichert" + (state.lastLogWrite ? " (letzter Eintrag " + formatTime(state.lastLogWrite) + ")" : "") + "."
+      });
+    } else if (logCount > 0 && state.lastLogCount > logCount && !resetAfterLog) {
+      warnings.push({
+        level: "alert",
+        text: "Daten wurden zurückgesetzt/gelöscht am " + formatTime(state.wipeDetectedAt) + ". Das Protokoll ist kürzer als zuvor (" + logCount + " statt " + state.lastLogCount + " Einträge)."
+      });
+    } else if (logCount === 0 && state.parentResetAt) {
+      warnings.push({
+        level: "info",
+        text: "Antwortprotokoll am " + formatTime(state.parentResetAt) + " in der Elternansicht zurückgesetzt."
+      });
+    } else if (logCount === 0) {
+      warnings.push({
+        level: "info",
+        text: "Protokoll leer seit erstem Start am " + formatTime(state.firstUse) + "."
+      });
+    }
+    return warnings;
+  }
+  function applyIntegrity(opts) {
+    opts = opts || {};
+    const now = new Date().toISOString();
+    return readIdbSentinel().then(function (idbData) {
+      const ls = readLsSentinel();
+      const cookie = readCookieSentinel();
+      const idb = idbData;
+      const found = [ls, cookie, idb].filter(Boolean);
+      const firstRun = found.length === 0;
+      const previously = { ls: false, cookie: false, idb: false };
+      found.forEach(function (s) {
+        if (s.written) {
+          if (s.written.ls) previously.ls = true;
+          if (s.written.cookie) previously.cookie = true;
+          if (s.written.idb) previously.idb = true;
+        }
+      });
+      const missing = [];
+      if (previously.ls && !ls) missing.push("localStorage");
+      if (previously.cookie && !cookie) missing.push("Cookie");
+      if (previously.idb && !idb) missing.push("IndexedDB");
+
+      let firstUse = earliest(ls && ls.firstUse, cookie && cookie.firstUse, idb && idb.firstUse) || now;
+      let counter = Math.max(ls && ls.counter || 0, cookie && cookie.counter || 0, idb && idb.counter || 0);
+      let lastLogCount = Math.max(ls && ls.lastLogCount || 0, cookie && cookie.lastLogCount || 0, idb && idb.lastLogCount || 0);
+      let lastLogWrite = latest(ls && ls.lastLogWrite, cookie && cookie.lastLogWrite, idb && idb.lastLogWrite);
+      let parentResetAt = latest(ls && ls.parentResetAt, cookie && cookie.parentResetAt, idb && idb.parentResetAt);
+      let wipeDetectedAt = earliest(ls && ls.wipeDetectedAt, cookie && cookie.wipeDetectedAt, idb && idb.wipeDetectedAt);
+
+      if (opts.bump !== false) counter += 1;
+
+      const log = loadLog();
+      const logCount = log.attempts.length;
+      const logLast = logCount ? log.attempts[log.attempts.length - 1].at : null;
+
+      if (opts.parentReset) {
+        parentResetAt = now;
+        lastLogCount = 0;
+        lastLogWrite = null;
+        wipeDetectedAt = null;
+      } else {
+        const hadReset = parentResetAt && (!lastLogWrite || parentResetAt >= lastLogWrite);
+        if (logCount === 0 && lastLogCount > 0 && !hadReset) {
+          if (!wipeDetectedAt) wipeDetectedAt = now;
+        } else if (logCount > 0 && lastLogCount > logCount && !hadReset) {
+          if (!wipeDetectedAt) wipeDetectedAt = now;
+        } else if (logCount >= lastLogCount) {
+          lastLogCount = logCount;
+          if (logLast) lastLogWrite = logLast;
+        }
+      }
+
+      const data = {
+        v: 1,
+        firstUse: firstUse,
+        counter: counter,
+        lastLogCount: lastLogCount,
+        lastLogWrite: lastLogWrite,
+        parentResetAt: parentResetAt,
+        wipeDetectedAt: wipeDetectedAt
+      };
+      return writeAllSentinels(data).then(function (written) {
+        data.written = written;
+        writeLsSentinel(data);
+        writeCookieSentinel(data);
+        return writeIdbSentinel(data).then(function () {
+          const warnings = buildWarnings(data, logCount, missing);
+          integrity = {
+            ready: true,
+            firstUse: firstUse,
+            counter: counter,
+            lastLogCount: lastLogCount,
+            lastLogWrite: lastLogWrite,
+            parentResetAt: parentResetAt,
+            wipeDetectedAt: wipeDetectedAt,
+            warnings: warnings,
+            sources: { ls: !!ls, cookie: !!cookie, idb: !!idb },
+            written: written
+          };
+          if (opts.rerender !== false && screen.name === "eltern") render();
+        });
+      });
+    });
+  }
+  function queueIntegrity(opts) {
+    integrityQueue = integrityQueue.then(function () { return applyIntegrity(opts); }, function () { return applyIntegrity(opts); });
+    return integrityQueue;
+  }
+  function normalize(value) {
+    return String(value).trim().toLowerCase().replace(/\s+/g, " ");
+  }
+  function b64dec(str) {
+    const bin = atob(str);
+    const out = new Uint8Array(bin.length);
+    for (let i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i);
+    return out;
+  }
+  function b64enc(buf) {
+    const bytes = buf instanceof Uint8Array ? buf : new Uint8Array(buf);
+    let s = "";
+    for (let i = 0; i < bytes.length; i++) s += String.fromCharCode(bytes[i]);
+    return btoa(s);
+  }
+  async function hashAnswer(value) {
+    const enc = new TextEncoder();
+    const norm = enc.encode(normalize(value));
+    const salt = b64dec(hashSalt);
+    const msg = new Uint8Array(salt.length + norm.length);
+    msg.set(salt, 0);
+    msg.set(norm, salt.length);
+    return b64enc(await crypto.subtle.digest("SHA-256", msg));
+  }
+  async function isRight(topicId, quizId, index, given) {
+    const key = quizKey(topicId, quizId);
+    const hashes = (answerHashes[key] && answerHashes[key][index]) || [];
+    const h = await hashAnswer(given);
+    return hashes.indexOf(h) !== -1;
+  }
+  async function deriveKey(password, saltB64) {
+    const enc = new TextEncoder();
+    const baseKey = await crypto.subtle.importKey("raw", enc.encode(password), "PBKDF2", false, ["deriveKey"]);
+    return crypto.subtle.deriveKey(
+      { name: "PBKDF2", salt: b64dec(saltB64), iterations: ITERATIONS, hash: "SHA-256" },
+      baseKey,
+      { name: "AES-GCM", length: 256 },
+      false,
+      ["decrypt"]
+    );
+  }
+  async function unlockWithPassword(password) {
+    const key = await deriveKey(password, vault.salt);
+    const plain = await crypto.subtle.decrypt(
+      { name: "AES-GCM", iv: b64dec(vault.iv) },
+      key,
+      b64dec(vault.ciphertext)
+    );
+    solutions = JSON.parse(new TextDecoder().decode(plain));
+    unlocked = true;
+    pwError = "";
+  }
+  function findTopic(id) {
+    for (let i = 0; i < topics.length; i++) if (topics[i].id === id) return topics[i];
+    return null;
+  }
+  function findQuiz(topicId, quizId) {
+    const topic = findTopic(topicId);
+    if (!topic) return null;
+    for (let i = 0; i < topic.quizzes.length; i++) if (topic.quizzes[i].id === quizId) return topic.quizzes[i];
+    return null;
+  }
+  function quizKey(topicId, quizId) { return topicId + ":" + quizId; }
+  function esc(value) {
+    return String(value)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+  function arg(value) { return encodeURIComponent(value == null ? "" : String(value)); }
+  function recordScore(topicId, quizId, score, total) {
+    const key = quizKey(topicId, quizId);
+    const old = progress[key];
+    progress = Object.assign({}, progress);
+    progress[key] = {
+      best: Math.max(old && old.best ? old.best : 0, score),
+      last: score,
+      total: total
+    };
+    saveProgress(progress);
+  }
+  function startQuiz(topicId, quizId) {
+    quizState = { index: 0, typed: "", chosen: null, checked: false, ok: false, score: 0, runScore: 0, mistakes: [], retry: false, attemptNo: 0 };
+    screen = { name: "quiz", topicId: topicId, quizId: quizId };
+    pwError = "";
+    render();
+  }
+  function passageHtml(text, current) {
+    const parts = text.split("___");
+    let html = '<p class="passage">';
+    for (let i = 0; i < parts.length; i++) {
+      html += esc(parts[i]);
+      if (i < parts.length - 1) {
+        html += '<span class="gap' + (i === current ? " on" : "") + '">' + (i + 1) + "</span>";
+      }
+    }
+    return html + "</p>";
+  }
+  function passwordForm(act, label, button) {
+    let html = '<form class="card" data-act="password-form" data-next="' + esc(act) + '" style="margin-top:14px">';
+    html += '<label class="pw" for="pw-input">' + esc(label || "Passwort für die Lösungen") + "</label>";
+    if (pwError) html += '<div class="err">' + esc(pwError) + "</div>";
+    html += '<input type="password" id="pw-input" name="password" autocomplete="off" placeholder="Passwort">';
+    html += '<button type="submit" class="submit"' + (pwBusy ? " disabled" : "") + ">" + (pwBusy ? "Prüfe …" : esc(button || "Lösungen entsperren")) + "</button>";
+    if (pwBusy) html += '<p class="wait">Einen Moment, das dauert kurz.</p>';
+    html += "</form>";
+    return html;
+  }
+  function solutionList(topicId, quizId) {
+    const quiz = findQuiz(topicId, quizId);
+    const items = solutions[quizKey(topicId, quizId)] || [];
+    let html = '<div class="card" style="margin-top:14px"><h2 class="sec">Lösungen</h2>';
+    quiz.questions.forEach(function (question, i) {
+      const sol = items[i] || { accepted: [], explanation: "" };
+      html += '<div class="sol-item"><div class="m-q">' + (i + 1) + ". " + esc(question.prompt) + "</div>";
+      html += '<div class="sol-a">Antwort: ' + esc((sol.accepted || []).join(" / ")) + "</div>";
+      if (sol.explanation) html += '<div class="m-ex">' + esc(sol.explanation) + "</div>";
+      html += "</div>";
+    });
+    html += "</div>";
+    return html;
+  }
+
+  function homeView() {
+    const done = Object.keys(progress).length;
+    let html = meta.kicker ? '<div class="kicker">' + esc(meta.kicker) + "</div>" : "";
+    html += '<h1 class="home-title">' + esc(meta.title) + "</h1>";
+    if (meta.lead) html += '<p class="lead">' + esc(meta.lead) + "</p>";
+    if (done > 0) {
+      html += '<div class="banner">Schon ' + done + " " + (done === 1 ? "Test" : "Tests") + " gemacht. Die Wertung zählt nur den ersten Versuch je Aufgabe. Die Punkte bleiben auf diesem Gerät gespeichert.</div>";
+    }
+    topics.forEach(function (topic) {
+      const finished = topic.quizzes.filter(function (quiz) { return progress[quizKey(topic.id, quiz.id)]; }).length;
+      html += '<button type="button" class="card-btn" data-act="open-topic" data-arg="' + arg(topic.id) + '">';
+      html += '<div class="card-title">' + esc(topic.title) + "</div>";
+      html += '<div class="teaser">' + esc(topic.teaser) + "</div>";
+      html += '<div class="meta">' + topic.quizzes.length + " Tests" + (finished ? " · " + finished + " gemacht" : "") + "</div>";
+      html += "</button>";
+    });
+    if (meta.footer) html += '<p class="foot">' + esc(meta.footer) + "</p>";
+    html += '<button type="button" class="eltern-link" data-act="open-eltern">Elternansicht</button>';
+    return html;
+  }
+
+  function topicView(topic) {
+    let html = '<button type="button" class="back" data-act="home">‹ Übersicht</button>';
+    html += '<h1 class="page">' + esc(topic.title) + "</h1>";
+    html += '<p class="lead">' + esc(topic.teaser) + "</p>";
+    html += '<h2 class="sec">' + esc(topic.lessonTitle) + "</h2>";
+    (topic.tables || []).forEach(function (table) {
+      const cols = table.columns || [];
+      const style = "grid-template-columns: repeat(" + cols.length + ", 1fr)";
+      html += '<div class="card vocab"><div class="vocab-row vocab-head" style="' + style + '">';
+      cols.forEach(function (col) { html += "<span>" + esc(col) + "</span>"; });
+      html += "</div>";
+      (table.rows || []).forEach(function (row) {
+        html += '<div class="vocab-row" style="' + style + '">';
+        row.forEach(function (cell, i) {
+          html += '<span' + (i === row.length - 1 ? ' class="muted"' : "") + ">" + esc(cell) + "</span>";
+        });
+        html += "</div>";
+      });
+      html += "</div>";
+    });
+    topic.lesson.forEach(function (block) {
+      html += '<div class="card lesson"><div class="lesson-h">' + esc(block.heading) + "</div>";
+      html += '<div class="lesson-b">' + esc(block.body) + "</div>";
+      (block.examples || []).forEach(function (example) {
+        html += '<div class="example">' + esc(example) + "</div>";
+      });
+      html += "</div>";
+    });
+    html += '<h2 class="sec tests">Tests</h2>';
+    topic.quizzes.forEach(function (quiz) {
+      const saved = progress[quizKey(topic.id, quiz.id)];
+      html += '<div class="quiz-block">';
+      html += '<button type="button" class="card-btn" data-act="start-quiz" data-topic="' + arg(topic.id) + '" data-arg="' + arg(quiz.id) + '">';
+      html += '<div class="card-title sm">' + esc(quiz.title) + "</div>";
+      html += '<div class="teaser">' + esc(quiz.blurb) + "</div>";
+      if (saved) html += '<div class="meta">Erstversuch: ' + saved.best + "/" + saved.total + "</div>";
+      html += "</button>";
+      html += '<button type="button" class="linkish" data-act="open-solutions" data-topic="' + arg(topic.id) + '" data-arg="' + arg(quiz.id) + '">Lösungen anzeigen</button>';
+      html += "</div>";
+    });
+    return html;
+  }
+
+  function quizView(quiz) {
+    const st = quizState;
+    const question = quiz.questions[st.index];
+    if (!question) return "";
+    const total = quiz.questions.length;
+    const options = question.options;
+    const pct = Math.round(((st.index + (st.checked ? 1 : 0)) / total) * 100);
+    let html = '<button type="button" class="back" data-act="back-topic">‹ Zurück</button>';
+    html += '<h1 class="quiz">' + esc(quiz.title) + "</h1>";
+    html += '<div class="hint">Frage ' + (st.index + 1) + " von " + total + "</div>";
+    html += '<div class="bar"><span style="width:' + pct + '%"></span></div>';
+    html += '<div class="card" style="margin-top:16px">';
+    if (question.passage) html += passageHtml(question.passage, st.index);
+    html += '<p class="q">' + esc(question.prompt) + "</p>";
+    html += question.hint ? '<p class="hint">' + esc(question.hint) + "</p>" : '<div style="height:8px"></div>';
+    if (options) {
+      options.forEach(function (option) {
+        let cls = "opt";
+        if (st.checked && st.chosen === option && st.ok) cls += " good";
+        else if (st.checked && st.chosen === option && !st.ok) cls += " bad";
+        else if (st.chosen === option) cls += " chosen";
+        html += '<button type="button" class="' + cls + '" ' + (st.checked ? "disabled " : "") + 'data-act="pick" data-arg="' + arg(option) + '">' + esc(option) + "</button>";
+      });
+    } else {
+      const bg = st.checked ? (st.ok ? "var(--good-bg)" : "var(--bad-bg)") : "#fff";
+      html += '<form data-act="check-form">';
+      html += '<input type="text" id="gap-input" value="' + esc(st.typed) + '" ' + (st.checked ? "disabled " : "") + 'autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Antwort tippen" style="background:' + bg + '">';
+      if (!st.checked) html += '<button type="submit" class="submit">Prüfen</button>';
+      html += "</form>";
+    }
+    if (st.checked) {
+      html += '<div class="fb ' + (st.ok ? "ok" : "no") + '"><div class="fb-title">' + (st.ok ? "Richtig" : "Leider falsch") + "</div>";
+      if (st.retry) html += '<div class="retry-note">Wiederholung, zählt nicht für die Wertung.</div>';
+      html += "</div>";
+    }
+    html += "</div>";
+    if (st.checked) {
+      const last = st.index + 1 >= total;
+      html += '<button type="button" class="primary" data-act="' + (last ? "finish" : "next") + '">' + (last ? "Ergebnis anzeigen" : "Weiter") + "</button>";
+    }
+    return html;
+  }
+
+  function resultView(quiz, result) {
+    const pct = result.total === 0 ? 0 : Math.round((result.score / result.total) * 100);
+    const message = pct === 100
+      ? "Perfekt, alles richtig!"
+      : pct >= 80
+        ? "Sehr gut, das sitzt schon."
+        : pct >= 50
+          ? "Guter Anfang — schau dir die Fehler noch einmal an."
+          : "Kein Problem, versuch es noch einmal.";
+    let html = '<button type="button" class="back" data-act="back-topic">‹ Zu den Tests</button>';
+    html += '<div class="card result"><div class="hint">' + esc(quiz.title) + "</div>";
+    html += '<div class="score">' + result.score + "/" + result.total + "</div>";
+    html += '<div class="pct">' + pct + " % im Erstversuch</div>";
+    html += '<p class="muted">' + esc(message) + "</p>";
+    if (typeof result.runScore === "number") {
+      html += '<p class="muted">Dieser Durchgang: ' + result.runScore + " von " + result.total + ". Für die Wertung zählt nur der erste Versuch je Aufgabe.</p>";
+    } else {
+      html += '<p class="muted">Für die Wertung zählt nur der erste Versuch je Aufgabe.</p>';
+    }
+    html += "</div>";
+    if (result.mistakes.length) {
+      html += '<div class="card" style="margin-top:14px"><h2 class="sec">Deine Fehler</h2>';
+      result.mistakes.forEach(function (item, i) {
+        html += '<div class="mistake"><div class="m-q">' + esc(item.prompt) + "</div>";
+        html += '<div class="m-bad">Deine Antwort: ' + esc(item.given) + "</div>";
+        if (unlocked && solutions) {
+          const sol = (solutions[quizKey(result.topicId, result.quizId)] || [])[item.index] || {};
+          if (sol.accepted) html += '<div class="m-good">Richtig: ' + esc(sol.accepted.join(" / ")) + "</div>";
+          if (sol.explanation) html += '<div class="m-ex">' + esc(sol.explanation) + "</div>";
+        }
+        html += "</div>";
+      });
+      html += "</div>";
+    }
+    if (unlocked) html += solutionList(result.topicId, result.quizId);
+    else {
+      html += '<button type="button" class="linkish" data-act="ask-password" data-next="result">Lösungen anzeigen</button>';
+      if (screen.showPw) html += passwordForm("result");
+    }
+    html += '<button type="button" class="primary" data-act="retry">Test wiederholen</button>';
+    html += '<button type="button" class="ghost" data-act="back-topic">Zurück zu den Tests</button>';
+    return html;
+  }
+
+  function solutionsView(topicId, quizId) {
+    const quiz = findQuiz(topicId, quizId);
+    let html = '<button type="button" class="back" data-act="back-topic">‹ Zu den Tests</button>';
+    html += '<h1 class="quiz">' + esc(quiz.title) + "</h1>";
+    html += '<p class="lead">Lösungen und kurze Erklärungen zu diesem Test.</p>';
+    if (unlocked) html += solutionList(topicId, quizId);
+    else html += passwordForm("solutions");
+    return html;
+  }
+
+
+  function elternView() {
+    let html = '<button type="button" class="back" data-act="home">‹ Übersicht</button>';
+    html += '<div class="kicker">Nur für Eltern</div>';
+    html += '<h1 class="page">Elternansicht</h1>';
+    if (!unlocked) {
+      html += '<p class="lead">Hier siehst du, welche Aufgaben beantwortet wurden, ob der erste Versuch stimmte und wie oft nachgearbeitet wurde.</p>';
+      html += passwordForm("eltern", "Passwort für die Elternansicht", "Elternansicht öffnen");
+      return html;
+    }
+    const log = loadLog();
+    const byTask = {};
+    log.attempts.forEach(function (a) {
+      if (!byTask[a.taskId]) byTask[a.taskId] = [];
+      byTask[a.taskId].push(a);
+    });
+    let totalTasks = 0;
+    let answered = 0;
+    let firstOk = 0;
+    const many = [];
+    topics.forEach(function (topic) {
+      topic.quizzes.forEach(function (quiz) {
+        quiz.questions.forEach(function (q, i) {
+          totalTasks++;
+          const id = taskId(topic.id, quiz.id, i);
+          const list = byTask[id] || [];
+          if (list.length) {
+            answered++;
+            if (list[0].correct) firstOk++;
+            if (list.length >= MANY_ATTEMPTS) {
+              many.push({
+                label: topic.title + " · " + quiz.title + " · Aufgabe " + (i + 1),
+                n: list.length,
+                prompt: q.prompt
+              });
+            }
+          }
+        });
+      });
+    });
+    many.sort(function (a, b) { return b.n - a.n; });
+    const rate = answered ? Math.round((firstOk / answered) * 100) : 0;
+    if (!integrity.ready) {
+      html += '<p class="muted">Sicherungsdaten werden geprüft …</p>';
+    } else {
+      integrity.warnings.forEach(function (w) {
+        html += '<div class="warn-box ' + esc(w.level) + '">' + esc(w.text) + "</div>";
+      });
+      html += '<p class="muted">Das Protokoll liegt nur auf diesem Gerät. Erster Start: ' + esc(formatTime(integrity.firstUse)) + " · Öffnungen: " + integrity.counter + " · Sicherungen: localStorage, IndexedDB, Cookie.</p>";
+    }
+    html += '<div class="card"><h2 class="sec">Zusammenfassung</h2>';
+    html += '<p class="muted">Beantwortet: ' + answered + " von " + totalTasks + " Aufgaben</p>";
+    html += '<p class="muted">Erstversuch richtig: ' + firstOk + " von " + answered + " beantworteten Aufgaben (" + rate + "%)</p>";
+    if (many.length) {
+      html += '<p class="muted" style="margin-top:12px"><strong>Aufgaben mit vielen Versuchen</strong> (' + MANY_ATTEMPTS + " oder mehr):</p><ul class=\"warn-list\">";
+      many.forEach(function (item) {
+        html += "<li>" + esc(item.label) + " · " + item.n + " Versuche · " + esc(item.prompt) + "</li>";
+      });
+      html += "</ul>";
+    } else {
+      html += '<p class="muted" style="margin-top:12px">Bisher keine Aufgaben mit ' + MANY_ATTEMPTS + " oder mehr Versuchen.</p>";
+    }
+    html += "</div>";
+    topics.forEach(function (topic) {
+      html += '<div class="card" style="margin-top:14px"><h2 class="sec">' + esc(topic.title) + "</h2>";
+      topic.quizzes.forEach(function (quiz) {
+        html += '<h3 class="card-title sm" style="margin:14px 0 8px">' + esc(quiz.title) + "</h3>";
+        quiz.questions.forEach(function (q, i) {
+          const id = taskId(topic.id, quiz.id, i);
+          const list = byTask[id] || [];
+          html += '<div class="task-log"><div class="m-q">' + (i + 1) + ". " + esc(q.prompt) + "</div>";
+          if (!list.length) {
+            html += '<span class="badge mute">nicht beantwortet</span>';
+          } else {
+            html += list[0].correct
+              ? '<span class="badge ok">Erstversuch richtig</span>'
+              : '<span class="badge no">Erstversuch falsch</span>';
+            html += '<span class="badge mute">' + list.length + (list.length === 1 ? " Versuch" : " Versuche") + "</span>";
+            html += '<div class="when">Erster Versuch: ' + esc(formatTime(list[0].at)) + "</div>";
+            html += '<div class="given">Antworten: ';
+            html += list.map(function (a) {
+              return esc(a.given || "—") + (a.correct ? " (richtig)" : " (falsch)") + " · " + esc(formatTime(a.at));
+            }).join("; ");
+            html += "</div>";
+          }
+          html += "</div>";
+        });
+      });
+      html += "</div>";
+    });
+    html += '<div class="card" style="margin-top:14px"><h2 class="sec">Protokoll zurücksetzen</h2>';
+    html += '<p class="muted">Löscht nur das Antwortprotokoll, nicht die angezeigten Erstversuch-Punkte. Danach kann neu gewertet werden. Das Kind sieht diesen Knopf nirgendwo sonst.</p>';
+    if (resetConfirm) {
+      html += passwordForm("reset-log", "Passwort bestätigen, um das Antwortprotokoll zu löschen", "Protokoll löschen");
+    } else {
+      html += '<button type="button" class="linkish" data-act="ask-reset-log">Protokoll löschen …</button>';
+    }
+    html += "</div>";
+    return html;
+  }
+
+  function view() {
+    if (screen.name === "topic") {
+      const topic = findTopic(screen.topicId);
+      return topic ? topicView(topic) : homeView();
+    }
+    if (screen.name === "quiz") {
+      const quiz = findQuiz(screen.topicId, screen.quizId);
+      return quiz ? quizView(quiz) : homeView();
+    }
+    if (screen.name === "result") {
+      const quiz = findQuiz(screen.topicId, screen.quizId);
+      return quiz ? resultView(quiz, screen) : homeView();
+    }
+    if (screen.name === "solutions") {
+      const quiz = findQuiz(screen.topicId, screen.quizId);
+      return quiz ? solutionsView(screen.topicId, screen.quizId) : homeView();
+    }
+    if (screen.name === "eltern") return elternView();
+    return homeView();
+  }
+
+  function render() {
+    document.getElementById("app").innerHTML = view();
+    const input = document.getElementById("gap-input");
+    if (input && quizState && !quizState.checked) {
+      input.addEventListener("input", function () { quizState.typed = input.value; });
+    }
+    const pw = document.getElementById("pw-input");
+    if (pw && !pwBusy) pw.focus();
+  }
+
+  async function checkAnswer(value) {
+    if (!quizState || quizState.checked || !String(value).trim()) return;
+    const quiz = findQuiz(screen.topicId, screen.quizId);
+    const question = quiz.questions[quizState.index];
+    const right = await isRight(screen.topicId, screen.quizId, quizState.index, value);
+    const attemptNo = recordAttempt(screen.topicId, screen.quizId, quizState.index, value, right);
+    const retry = attemptNo > 1;
+    quizState.chosen = value;
+    quizState.checked = true;
+    quizState.ok = right;
+    quizState.retry = retry;
+    quizState.attemptNo = attemptNo;
+    if (right) {
+      quizState.runScore += 1;
+      if (!retry) quizState.score += 1;
+    } else {
+      quizState.mistakes.push({ prompt: question.prompt, given: value, index: quizState.index });
+    }
+    render();
+  }
+
+  async function submitPassword(password, next) {
+    if (pwBusy) return;
+    pwBusy = true;
+    pwError = "";
+    render();
+    try {
+      if (next === "reset-log") {
+        const key = await deriveKey(password, vault.salt);
+        await crypto.subtle.decrypt(
+          { name: "AES-GCM", iv: b64dec(vault.iv) },
+          key,
+          b64dec(vault.ciphertext)
+        );
+        clearLog();
+        resetConfirm = false;
+        pwError = "";
+        screen = { name: "eltern" };
+        await queueIntegrity({ bump: true, parentReset: true, rerender: true });
+      } else {
+        await unlockWithPassword(password);
+        screen.showPw = false;
+        if (next === "eltern") screen = { name: "eltern" };
+        else if (next === "solutions" || screen.name === "solutions") {
+          screen = { name: "solutions", topicId: screen.topicId, quizId: screen.quizId };
+        }
+      }
+    } catch (e) {
+      pwError = "Das Passwort ist falsch.";
+      if (next !== "reset-log") {
+        unlocked = false;
+        solutions = null;
+      }
+    }
+    pwBusy = false;
+    render();
+  }
+
+  function onClick(event) {
+    const el = event.target.closest("[data-act]");
+    if (!el) return;
+    const act = el.getAttribute("data-act");
+    if (act === "password-form" || act === "check-form") return;
+    const a = decodeURIComponent(el.getAttribute("data-arg") || "");
+    if (act === "open-topic") {
+      screen = { name: "topic", topicId: a };
+      render();
+    } else if (act === "home") {
+      screen = { name: "home" };
+      render();
+    } else if (act === "start-quiz") {
+      startQuiz(decodeURIComponent(el.getAttribute("data-topic") || ""), a);
+    } else if (act === "back-topic") {
+      screen = { name: "topic", topicId: screen.topicId };
+      quizState = null;
+      pwError = "";
+      render();
+    } else if (act === "pick") {
+      checkAnswer(a);
+    } else if (act === "next") {
+      quizState.index += 1;
+      quizState.typed = "";
+      quizState.chosen = null;
+      quizState.checked = false;
+      quizState.ok = false;
+      quizState.retry = false;
+      quizState.attemptNo = 0;
+      render();
+    } else if (act === "finish") {
+      const quiz = findQuiz(screen.topicId, screen.quizId);
+      const official = officialFirstScore(screen.topicId, screen.quizId, quiz.questions.length);
+      recordScore(screen.topicId, screen.quizId, official, quiz.questions.length);
+      screen = {
+        name: "result",
+        topicId: screen.topicId,
+        quizId: screen.quizId,
+        score: official,
+        runScore: quizState.runScore,
+        total: quiz.questions.length,
+        mistakes: quizState.mistakes,
+        showPw: false
+      };
+      quizState = null;
+      render();
+    } else if (act === "retry") {
+      startQuiz(screen.topicId, screen.quizId);
+    } else if (act === "open-solutions") {
+      const topicId = decodeURIComponent(el.getAttribute("data-topic") || screen.topicId);
+      screen = { name: "solutions", topicId: topicId, quizId: a };
+      pwError = "";
+      render();
+    } else if (act === "ask-password") {
+      screen.showPw = true;
+      pwError = "";
+      render();
+    } else if (act === "open-eltern") {
+      screen = { name: "eltern" };
+      pwError = "";
+      resetConfirm = false;
+      render();
+    } else if (act === "ask-reset-log") {
+      resetConfirm = true;
+      pwError = "";
+      render();
+    }
+  }
+
+  function onSubmit(event) {
+    const form = event.target.closest("form");
+    if (!form) return;
+    event.preventDefault();
+    const act = form.getAttribute("data-act");
+    if (act === "check-form") {
+      const input = document.getElementById("gap-input");
+      checkAnswer(input ? input.value : "");
+    } else if (act === "password-form") {
+      const input = document.getElementById("pw-input");
+      submitPassword(input ? input.value : "", form.getAttribute("data-next") || "solutions");
+    }
+  }
+
+  const app = document.getElementById("app");
+  app.addEventListener("click", onClick);
+  app.addEventListener("submit", onSubmit);
+  render();
+  queueIntegrity({ bump: true, rerender: true });
+})();
+
+  </script>
+  <script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function () {
+      navigator.serviceWorker.register("./sw.js");
+    });
+  }
+  </script>
+</body>
+</html>
